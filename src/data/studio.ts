@@ -6,8 +6,7 @@ export const studio = {
     "A premium digital studio building refined products, AI-powered systems, and cinematic web experiences.",
   shortPositioning:
     "Product engineering, AI automation, and digital experience craft.",
-  manifesto:
-    "Aether Studio turns complex product ideas into calm, intelligent digital systems with the precision of engineering and the taste of a creative atelier.",
+  manifesto: "Calm digital systems. Cinematic interfaces. AI built for real work.",
   location: "Europe / Remote"
 };
 
