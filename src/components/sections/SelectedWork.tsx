@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { projects } from "@/data/projects";
 
@@ -19,9 +20,17 @@ export function SelectedWork() {
       <div className="mx-auto max-w-[1560px]">
         <div className="relative mb-16 grid gap-8 lg:grid-cols-[0.35fr_1fr]">
           <SectionLabel index="02" label="Selected work" tone="light" />
-          <h2 className="max-w-5xl font-display text-[clamp(3.2rem,8vw,8.5rem)] font-medium leading-[0.88] text-balance">
-            Case studies with atmosphere, logic, and business shape.
-          </h2>
+          <div>
+            <h2 className="max-w-5xl font-display text-[clamp(3.2rem,8vw,8.5rem)] font-medium leading-[0.88] text-balance">
+              Case studies with atmosphere, logic, and business shape.
+            </h2>
+            <Link
+              href="/work"
+              className="mt-8 inline-flex rounded-full border border-chalk/18 px-5 py-3 text-sm font-medium text-chalk/72 transition-colors duration-300 hover:border-mist/50 hover:text-chalk"
+            >
+              Explore reference archive
+            </Link>
+          </div>
         </div>
 
         <div className="relative space-y-7">
