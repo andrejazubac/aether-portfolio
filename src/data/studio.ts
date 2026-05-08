@@ -1,7 +1,8 @@
 export const studio = {
   name: "Aether Studio",
   founder: "Andreja Zubac",
-  email: "andrejaksp98@gmail.com",
+  email: "andreja.zubac.work@gmail.com",
+  phone: "+381641251203",
   positioning:
     "A premium digital studio building refined products, AI-powered systems, and cinematic web experiences.",
   shortPositioning:

@@ -1,6 +1,7 @@
 import { Bot, GitBranch, Workflow } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { MotionAccent } from "@/components/visuals/MotionAccent";
 
 const systems = [
   { icon: Workflow, title: "Workflow intelligence", text: "Mapping repeated business actions into clean, observable automation flows." },
@@ -39,6 +40,7 @@ export function AISystems() {
               </div>
               <div className="relative min-h-72 overflow-hidden border border-carbon/10 bg-carbon text-chalk">
                 <div className="absolute inset-0 dark-grid-lines opacity-55" />
+                <MotionAccent variant="sweep" className="absolute inset-0 opacity-75" />
                 <div className="absolute left-8 top-8 h-16 w-16 rounded-full border border-mist/60" />
                 <div className="absolute right-8 top-20 h-24 w-24 rounded-full bg-oxide/75 blur-sm" />
                 <div className="absolute bottom-8 left-10 right-10 space-y-3">

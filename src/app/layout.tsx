@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "creative technology",
     "Next.js developer"
   ],
-  authors: [{ name: "Andreja Zubac", url: "mailto:andrejaksp98@gmail.com" }],
+  authors: [{ name: "Andreja Zubac", url: "mailto:andreja.zubac.work@gmail.com" }],
   creator: "Andreja Zubac",
   openGraph: {
     title: "Aether Studio | Premium Digital Studio",

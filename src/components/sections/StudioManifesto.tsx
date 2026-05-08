@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { MotionAccent } from "@/components/visuals/MotionAccent";
 import { studio } from "@/data/studio";
 
 export function StudioManifesto() {
@@ -21,6 +22,7 @@ export function StudioManifesto() {
           </div>
           <div className="relative min-h-72 overflow-hidden border border-moss/16 bg-chalk/62 p-5 shadow-soft">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_18%,rgba(203,216,220,0.78),transparent_26%),radial-gradient(circle_at_82%_74%,rgba(166,95,62,0.22),transparent_28%)]" />
+            <MotionAccent variant="ring" className="absolute inset-x-0 top-5 opacity-55" />
             <div className="relative flex h-full min-h-60 flex-col justify-between">
               <p className="text-xs uppercase tracking-label text-moss/55">Studio coordinates</p>
               <div className="space-y-3">

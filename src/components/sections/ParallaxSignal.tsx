@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
+import aetherSection from "@/resources/AetherSection.png";
 
 export function ParallaxSignal() {
   const ref = useRef<HTMLElement>(null);
@@ -18,16 +19,16 @@ export function ParallaxSignal() {
   return (
     <section ref={ref} className="relative min-h-[92vh] overflow-hidden bg-porcelain text-carbon">
       <motion.div style={{ y: imageY }} className="absolute inset-[-10%]">
-        {/* TODO: Replace image with custom Aether Studio process or architecture visual. */}
         <Image
-          src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2200&q=85"
-          alt="Minimal architectural interior placeholder"
+          src={aetherSection}
+          alt="Aether Studio abstract hero visual"
           fill
           sizes="100vw"
-          className="object-cover opacity-55 saturate-[0.72]"
+          priority={false}
+          className="object-cover opacity-68 saturate-[0.92]"
         />
       </motion.div>
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(243,240,234,0.92),rgba(243,240,234,0.64),rgba(243,240,234,0.92))]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(243,240,234,0.9),rgba(243,240,234,0.54),rgba(243,240,234,0.88))]" />
       <motion.div style={{ y: gridY }} className="absolute inset-0 grid-lines opacity-70" />
       <div className="absolute inset-x-5 top-10 h-px bg-carbon/18 md:inset-x-10" />
       <div className="absolute inset-x-5 bottom-10 h-px bg-carbon/18 md:inset-x-10" />

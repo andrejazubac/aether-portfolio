@@ -1,6 +1,7 @@
-import { ArrowRight, Mail, MapPin } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { MotionAccent } from "@/components/visuals/MotionAccent";
 import { studio } from "@/data/studio";
 
 export function Contact() {
@@ -33,6 +34,13 @@ export function Contact() {
                   <Mail size={16} strokeWidth={1.6} />
                   {studio.email}
                 </a>
+                <a
+                  href={`tel:${studio.phone}`}
+                  className="inline-flex items-center gap-3 rounded-full border border-moss/18 bg-chalk/70 px-5 py-3 text-sm font-medium text-moss transition-colors duration-300 hover:bg-mist/45"
+                >
+                  <Phone size={16} strokeWidth={1.6} />
+                  {studio.phone}
+                </a>
               </div>
             </div>
           </div>
@@ -40,6 +48,7 @@ export function Contact() {
           <div className="grid gap-5">
             <div className="relative overflow-hidden bg-moss p-7 text-chalk">
               <div className="absolute inset-0 dark-grid-lines opacity-35" />
+              <MotionAccent variant="sweep" className="absolute inset-0 opacity-35" />
               <div className="relative">
                 <MapPin size={22} strokeWidth={1.5} className="text-mist" />
                 <p className="mt-12 text-xs uppercase tracking-label text-chalk/46">Studio mode</p>
@@ -55,7 +64,7 @@ export function Contact() {
               <div>
                 <p className="text-xs uppercase tracking-label text-moss/50">Direct line</p>
                 <p className="mt-4 max-w-xs text-lg leading-7 text-carbon/64">
-                  Share the goal, the timeline, and the kind of experience you want people to feel.
+                  Share the goal, timeline, and the kind of experience you want people to feel. Email or call directly.
                 </p>
               </div>
               <ArrowRight className="shrink-0 text-oxide transition-transform duration-300 group-hover:translate-x-1" size={24} strokeWidth={1.5} />
