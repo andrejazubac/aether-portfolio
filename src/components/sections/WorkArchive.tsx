@@ -86,7 +86,7 @@ export function WorkArchive() {
                 >
                   <Image
                     src={item.image}
-                    alt={`${item.title} website screenshot placeholder`}
+                    alt={`${item.title} visual direction placeholder`}
                     fill
                     sizes="(min-width: 768px) 46vw, 100vw"
                     className="object-cover opacity-88 saturate-[0.9] transition duration-700 group-hover:scale-105 group-hover:saturate-110"

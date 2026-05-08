@@ -1,5 +1,5 @@
-const screenshot = (url: string) =>
-  `https://image.thum.io/get/width/1600/crop/1050/noanimate/${url}`;
+const unsplash = (id: string) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1600&q=86`;
 
 export type WorkReference = {
   index: string;
@@ -22,7 +22,7 @@ export const workReferences: WorkReference[] = [
     tone: "Cinematic agency system",
     url: "https://obys.agency",
     awwwardsUrl: "https://www.awwwards.com/sites/obys-agency",
-    image: screenshot("https://obys.agency"),
+    image: unsplash("photo-1518005020951-eccb494ad742"),
     description:
       "A sharp creative studio presence with bold editorial rhythm, confident pacing, and motion-led transitions.",
     alignment:
@@ -36,7 +36,7 @@ export const workReferences: WorkReference[] = [
     tone: "Product studio clarity",
     url: "https://www.buildinamsterdam.com",
     awwwardsUrl: "https://www.awwwards.com/sites/build-in-amsterdam",
-    image: screenshot("https://www.buildinamsterdam.com"),
+    image: unsplash("photo-1497366754035-f200968a6e72"),
     description:
       "A mature digital product studio reference with restrained hierarchy, confident spacing, and work-led credibility.",
     alignment:
@@ -50,7 +50,7 @@ export const workReferences: WorkReference[] = [
     tone: "Technology-led brand",
     url: "https://www.instrument.com",
     awwwardsUrl: "https://www.awwwards.com/sites/instrument-1",
-    image: screenshot("https://www.instrument.com"),
+    image: unsplash("photo-1557804506-669a67965ba0"),
     description:
       "A polished technology and brand studio reference with enterprise confidence and elegant digital storytelling.",
     alignment:
@@ -64,7 +64,7 @@ export const workReferences: WorkReference[] = [
     tone: "Creative identity craft",
     url: "https://www.studiotyrsa.com",
     awwwardsUrl: "https://www.awwwards.com/sites/studio-tyrsa",
-    image: screenshot("https://www.studiotyrsa.com"),
+    image: unsplash("photo-1500530855697-b586d89ba3ee"),
     description:
       "A visual identity-led reference with expressive typography, personality, and refined creative direction.",
     alignment:
@@ -78,7 +78,7 @@ export const workReferences: WorkReference[] = [
     tone: "Minimal creative freshness",
     url: "https://localstudio.fr",
     awwwardsUrl: "https://www.awwwards.com/sites/local-studio",
-    image: screenshot("https://localstudio.fr"),
+    image: unsplash("photo-1497366811353-6870744d04b2"),
     description:
       "A clean creative studio reference with modern composition, fresh visual rhythm, and confident white space.",
     alignment:
@@ -92,7 +92,7 @@ export const workReferences: WorkReference[] = [
     tone: "Soft immersive editorial",
     url: "https://www.awwwards.com/sites/una-1",
     awwwardsUrl: "https://www.awwwards.com/sites/una-1",
-    image: screenshot("https://www.awwwards.com/sites/una-1"),
+    image: unsplash("photo-1500534314209-a25ddb2bd429"),
     description:
       "A calm, immersive reference with editorial pacing and an atmosphere that feels more crafted than conventional.",
     alignment:
@@ -106,7 +106,7 @@ export const workReferences: WorkReference[] = [
     tone: "Architectural elegance",
     url: "https://www.awwwards.com/sites/atelier-brzozowski",
     awwwardsUrl: "https://www.awwwards.com/sites/atelier-brzozowski",
-    image: screenshot("https://www.awwwards.com/sites/atelier-brzozowski"),
+    image: unsplash("photo-1504384308090-c894fdcc538d"),
     description:
       "A refined atelier reference with architectural restraint, tactile composition, and high-end pacing.",
     alignment:
@@ -120,7 +120,7 @@ export const workReferences: WorkReference[] = [
     tone: "Calm luxury service",
     url: "https://www.awwwards.com/sites/serenity-hair-salon-blaxland",
     awwwardsUrl: "https://www.awwwards.com/sites/serenity-hair-salon-blaxland",
-    image: screenshot("https://www.awwwards.com/sites/serenity-hair-salon-blaxland"),
+    image: unsplash("photo-1483058712412-4245e9b90334"),
     description:
       "A service-business reference with calm luxury cues, soft rhythm, and elevated visual confidence.",
     alignment:
@@ -134,7 +134,7 @@ export const workReferences: WorkReference[] = [
     tone: "Interactive technology energy",
     url: "https://activetheory.net",
     awwwardsUrl: "https://www.awwwards.com/sites/active-theory-v4",
-    image: screenshot("https://activetheory.net"),
+    image: unsplash("photo-1518770660439-4636190af475"),
     description:
       "A motion and interactive technology reference with strong spatial energy and experimental digital craft.",
     alignment:
@@ -148,7 +148,7 @@ export const workReferences: WorkReference[] = [
     tone: "Experimental digital craft",
     url: "https://resn.co.nz",
     awwwardsUrl: "https://www.awwwards.com/sites/resn",
-    image: screenshot("https://resn.co.nz"),
+    image: unsplash("photo-1485827404703-89b55fcc595e"),
     description:
       "An experimental studio reference known for playful but precise digital experiences and immersive interaction.",
     alignment:
