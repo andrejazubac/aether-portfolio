@@ -1,6 +1,3 @@
-const unsplash = (id: string) =>
-  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1600&q=86`;
-
 export type WorkReference = {
   index: string;
   title: string;
@@ -14,6 +11,24 @@ export type WorkReference = {
   tags: string[];
 };
 
+export const currentProjects = [
+  {
+    index: "00",
+    title: "Royal Construction",
+    category: "Current project",
+    location: "Russia",
+    url: "https://royal-website-nine.vercel.app/",
+    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1920&q=80",
+    description:
+      "A premium construction, interior design, and renovation website for residential and commercial spaces in Russia.",
+    role:
+      "Digital presence direction, frontend experience, premium service positioning, and conversion-focused website structure.",
+    alignment:
+      "Aligned with Aether through luxury service presentation, architectural atmosphere, calm pacing, and high-trust visual composition.",
+    tags: ["Construction", "Interior design", "Renovation", "Russia"]
+  }
+];
+
 export const workReferences: WorkReference[] = [
   {
     index: "01",
@@ -21,8 +36,8 @@ export const workReferences: WorkReference[] = [
     category: "Motion",
     tone: "Cinematic agency system",
     url: "https://obys.agency",
-    awwwardsUrl: "https://www.awwwards.com/sites/obys-agency",
-    image: unsplash("photo-1518005020951-eccb494ad742"),
+    awwwardsUrl: "https://www.awwwards.com/sites/obys",
+    image: "https://assets.awwwards.com/awards/submissions/2019/12/5e04713de91c3272559552.jpg",
     description:
       "A sharp creative studio presence with bold editorial rhythm, confident pacing, and motion-led transitions.",
     alignment:
@@ -36,7 +51,7 @@ export const workReferences: WorkReference[] = [
     tone: "Product studio clarity",
     url: "https://www.buildinamsterdam.com",
     awwwardsUrl: "https://www.awwwards.com/sites/build-in-amsterdam",
-    image: unsplash("photo-1497366754035-f200968a6e72"),
+    image: "https://assets.awwwards.com/awards/screenshots/2014/05/5376144a927b9.jpeg",
     description:
       "A mature digital product studio reference with restrained hierarchy, confident spacing, and work-led credibility.",
     alignment:
@@ -49,8 +64,8 @@ export const workReferences: WorkReference[] = [
     category: "Professional",
     tone: "Technology-led brand",
     url: "https://www.instrument.com",
-    awwwardsUrl: "https://www.awwwards.com/sites/instrument-1",
-    image: unsplash("photo-1557804506-669a67965ba0"),
+    awwwardsUrl: "https://www.awwwards.com/sites/instrument",
+    image: "https://assets.awwwards.com/awards/submissions/2017/09/59ccac11a1518.jpg",
     description:
       "A polished technology and brand studio reference with enterprise confidence and elegant digital storytelling.",
     alignment:
@@ -64,7 +79,7 @@ export const workReferences: WorkReference[] = [
     tone: "Creative identity craft",
     url: "https://www.studiotyrsa.com",
     awwwardsUrl: "https://www.awwwards.com/sites/studio-tyrsa",
-    image: unsplash("photo-1500530855697-b586d89ba3ee"),
+    image: "https://assets.awwwards.com/awards/submissions/2025/09/68da56a7daaa3799677515.jpg",
     description:
       "A visual identity-led reference with expressive typography, personality, and refined creative direction.",
     alignment:
@@ -78,7 +93,7 @@ export const workReferences: WorkReference[] = [
     tone: "Minimal creative freshness",
     url: "https://localstudio.fr",
     awwwardsUrl: "https://www.awwwards.com/sites/local-studio",
-    image: unsplash("photo-1497366811353-6870744d04b2"),
+    image: "https://assets.awwwards.com/awards/submissions/2024/06/665d54271b446950098230.png",
     description:
       "A clean creative studio reference with modern composition, fresh visual rhythm, and confident white space.",
     alignment:
@@ -92,7 +107,7 @@ export const workReferences: WorkReference[] = [
     tone: "Soft immersive editorial",
     url: "https://www.awwwards.com/sites/una-1",
     awwwardsUrl: "https://www.awwwards.com/sites/una-1",
-    image: unsplash("photo-1500534314209-a25ddb2bd429"),
+    image: "https://assets.awwwards.com/awards/submissions/2024/03/65ee216da932a611902905.jpg",
     description:
       "A calm, immersive reference with editorial pacing and an atmosphere that feels more crafted than conventional.",
     alignment:
@@ -106,7 +121,7 @@ export const workReferences: WorkReference[] = [
     tone: "Architectural elegance",
     url: "https://www.awwwards.com/sites/atelier-brzozowski",
     awwwardsUrl: "https://www.awwwards.com/sites/atelier-brzozowski",
-    image: unsplash("photo-1504384308090-c894fdcc538d"),
+    image: "https://assets.awwwards.com/awards/submissions/2024/09/66d5891199c6a233477539.jpg",
     description:
       "A refined atelier reference with architectural restraint, tactile composition, and high-end pacing.",
     alignment:
@@ -118,9 +133,9 @@ export const workReferences: WorkReference[] = [
     title: "Serenity Hair Salon",
     category: "Refreshing",
     tone: "Calm luxury service",
-    url: "https://www.awwwards.com/sites/serenity-hair-salon-blaxland",
+    url: "https://serenityhairblaxland.com.au/",
     awwwardsUrl: "https://www.awwwards.com/sites/serenity-hair-salon-blaxland",
-    image: unsplash("photo-1483058712412-4245e9b90334"),
+    image: "https://assets.awwwards.com/awards/submissions/2025/08/68a562ea909a2211875397.jpg",
     description:
       "A service-business reference with calm luxury cues, soft rhythm, and elevated visual confidence.",
     alignment:
@@ -134,7 +149,7 @@ export const workReferences: WorkReference[] = [
     tone: "Interactive technology energy",
     url: "https://activetheory.net",
     awwwardsUrl: "https://www.awwwards.com/sites/active-theory-v4",
-    image: unsplash("photo-1518770660439-4636190af475"),
+    image: "https://assets.awwwards.com/awards/submissions/2018/01/5a668eddce6d7.png",
     description:
       "A motion and interactive technology reference with strong spatial energy and experimental digital craft.",
     alignment:
@@ -143,16 +158,16 @@ export const workReferences: WorkReference[] = [
   },
   {
     index: "10",
-    title: "Resn",
+    title: "Cuberto",
     category: "Motion",
-    tone: "Experimental digital craft",
-    url: "https://resn.co.nz",
-    awwwardsUrl: "https://www.awwwards.com/sites/resn",
-    image: unsplash("photo-1485827404703-89b55fcc595e"),
+    tone: "Interactive product energy",
+    url: "https://cuberto.com",
+    awwwardsUrl: "https://www.awwwards.com/sites/cuberto",
+    image: "https://assets.awwwards.com/awards/submissions/2018/06/5b1a57e7ec034.png",
     description:
-      "An experimental studio reference known for playful but precise digital experiences and immersive interaction.",
+      "A creative technology and digital product reference with fluid interaction, motion confidence, and bold presentation.",
     alignment:
-      "Aligned with Aether through creative technology, memorable interaction, and non-generic experience design.",
-    tags: ["Experimental", "Immersive", "Creative tech"]
+      "Aligned with Aether through product energy, motion-led storytelling, and non-generic experience design.",
+    tags: ["Interactive", "Product", "Creative tech"]
   }
 ];

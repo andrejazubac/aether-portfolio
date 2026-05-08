@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { useRef } from "react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { workReferences } from "@/data/workReferences";
+import { currentProjects, workReferences } from "@/data/workReferences";
 
 const categoryStyles = {
   Motion: "border-mist/45 bg-mist/18 text-mist",
@@ -40,7 +40,7 @@ export function WorkArchive() {
                 A curated archive of Awwwards-level references that match the kind of products, systems, motion, and creative direction Aether Studio is built to create.
               </p>
               <p className="text-sm uppercase tracking-label text-chalk/42 md:text-right">
-                Not client work / Directional references
+                Directional references
               </p>
             </div>
           </div>
@@ -49,7 +49,84 @@ export function WorkArchive() {
 
       <section className="relative overflow-hidden px-5 py-20 md:px-10 md:py-28">
         <div className="absolute inset-0 grid-lines opacity-45" />
-        <div className="relative mx-auto grid max-w-[1560px] gap-10 lg:grid-cols-[0.34fr_1fr]">
+        <div className="relative mx-auto max-w-[1560px]">
+          <div className="mb-20 grid gap-10 lg:grid-cols-[0.34fr_1fr]">
+            <SectionLabel index="01" label="Current project" />
+            {currentProjects.map((project) => (
+              <motion.article
+                key={project.title}
+                initial={{ opacity: 0, y: 36 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10% 0px" }}
+                transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                className="group grid overflow-hidden bg-moss text-chalk shadow-soft lg:grid-cols-[1.05fr_0.95fr]"
+              >
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="relative block min-h-[24rem] overflow-hidden lg:min-h-[38rem]"
+                >
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} construction and interior design project placeholder`}
+                    fill
+                    sizes="(min-width: 1024px) 52vw, 100vw"
+                    className="object-cover opacity-82 saturate-[0.78] transition duration-700 group-hover:scale-105 group-hover:saturate-100"
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(38,56,45,0.04),rgba(38,56,45,0.74))]" />
+                  <span className="absolute bottom-6 left-6 rounded-full border border-chalk/24 bg-chalk/10 px-4 py-2 text-xs uppercase tracking-label text-chalk/72">
+                    Live build
+                  </span>
+                </a>
+                <div className="flex flex-col justify-between p-7 md:p-10 lg:p-12">
+                  <div>
+                    <div className="mb-7 flex flex-wrap gap-3">
+                      <span className="rounded-full border border-mist/35 bg-mist/12 px-3 py-1.5 text-xs uppercase tracking-label text-mist">
+                        {project.category}
+                      </span>
+                      <span className="rounded-full border border-chalk/18 px-3 py-1.5 text-xs uppercase tracking-label text-chalk/52">
+                        {project.location}
+                      </span>
+                    </div>
+                    <h2 className="font-display text-[clamp(3.6rem,8vw,8.6rem)] font-medium leading-[0.84]">
+                      {project.title}
+                    </h2>
+                    <p className="mt-8 max-w-2xl text-xl leading-8 text-chalk/68">{project.description}</p>
+                  </div>
+
+                  <div className="mt-12 grid gap-7 border-t border-chalk/14 pt-7 md:grid-cols-2">
+                    <div>
+                      <p className="text-xs uppercase tracking-label text-chalk/38">Aether role</p>
+                      <p className="mt-4 leading-7 text-chalk/62">{project.role}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-label text-chalk/38">Why it belongs</p>
+                      <p className="mt-4 leading-7 text-chalk/62">{project.alignment}</p>
+                    </div>
+                  </div>
+
+                  <div className="mt-8 flex flex-wrap items-center gap-3">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="rounded-full border border-chalk/14 px-3 py-1 text-xs text-chalk/48">
+                        {tag}
+                      </span>
+                    ))}
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="ml-auto inline-flex items-center gap-2 text-sm font-medium text-mist underline-offset-8 hover:underline"
+                    >
+                      Visit live site <ArrowUpRight size={15} strokeWidth={1.6} />
+                    </a>
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+
+          <div className="grid gap-10 lg:grid-cols-[0.34fr_1fr]">
           <aside className="lg:sticky lg:top-28 lg:h-fit">
             <SectionLabel index="10" label="Chosen references" />
             <p className="mt-8 max-w-sm text-lg leading-8 text-carbon/60">
@@ -141,6 +218,7 @@ export function WorkArchive() {
                 </div>
               </motion.article>
             ))}
+          </div>
           </div>
         </div>
       </section>
