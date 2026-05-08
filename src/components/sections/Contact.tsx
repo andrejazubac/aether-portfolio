@@ -8,7 +8,7 @@ export function Contact() {
     <section id="contact" className="relative overflow-hidden bg-chalk px-5 py-24 text-carbon md:px-10 md:py-40">
       <div className="absolute inset-x-0 top-0 h-px bg-carbon/15" />
       <div className="mx-auto grid max-w-[1560px] gap-16 lg:grid-cols-[0.35fr_1fr]">
-        <SectionLabel index="08" label="Contact" />
+        <SectionLabel index="09" label="Contact" />
         <div>
           <h2 className="max-w-6xl font-display text-[clamp(4rem,12vw,13rem)] font-medium leading-[0.82] text-balance">
             Build something precise.

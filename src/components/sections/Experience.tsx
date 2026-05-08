@@ -6,7 +6,7 @@ export function Experience() {
   return (
     <section id="experience" className="bg-porcelain px-5 py-24 text-carbon md:px-10 md:py-36">
       <div className="mx-auto grid max-w-[1560px] gap-14 lg:grid-cols-[0.35fr_1fr]">
-        <SectionLabel index="06" label="Studio credibility" />
+        <SectionLabel index="07" label="Studio credibility" />
         <div className="grid gap-8">
           {experience.map((item) => (
             <Reveal key={item.period}>

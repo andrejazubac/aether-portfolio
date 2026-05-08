@@ -7,7 +7,7 @@ export function Services() {
     <section id="services" className="bg-carbon px-5 py-24 text-chalk md:px-10 md:py-36">
       <div className="mx-auto max-w-[1560px]">
         <div className="grid gap-12 lg:grid-cols-[0.35fr_1fr]">
-          <SectionLabel index="07" label="Services" tone="light" />
+          <SectionLabel index="08" label="Services" tone="light" />
           <Reveal>
             <h2 className="max-w-5xl font-display text-[clamp(3.2rem,8vw,8.6rem)] font-medium leading-[0.88] text-balance">
               Premium digital work for founders, teams, and brands that need more than execution.
