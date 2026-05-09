@@ -10,6 +10,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "assets.awwwards.com"
+      },
+      {
+        protocol: "https",
+        hostname: "beautyboomplus.vercel.app"
       }
     ]
   }

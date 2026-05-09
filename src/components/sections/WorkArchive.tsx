@@ -52,6 +52,7 @@ export function WorkArchive() {
         <div className="relative mx-auto max-w-[1560px]">
           <div className="mb-20 grid gap-10 lg:grid-cols-[0.34fr_1fr]">
             <SectionLabel index="01" label="Current project" />
+            <div className="space-y-8">
             {currentProjects.map((project) => (
               <motion.article
                 key={project.title}
@@ -59,19 +60,19 @@ export function WorkArchive() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-10% 0px" }}
                 transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                className="group grid overflow-hidden bg-moss text-chalk shadow-soft lg:grid-cols-[1.05fr_0.95fr]"
+                className="group grid min-w-0 overflow-hidden bg-moss text-chalk shadow-soft xl:grid-cols-[0.92fr_1.08fr]"
               >
                 <a
                   href={project.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="relative block min-h-[24rem] overflow-hidden lg:min-h-[38rem]"
+                  className="relative block min-h-[21rem] overflow-hidden md:min-h-[28rem] xl:min-h-[34rem]"
                 >
                   <Image
                     src={project.image}
-                    alt={`${project.title} construction and interior design project placeholder`}
+                    alt={`${project.title} project visual placeholder`}
                     fill
-                    sizes="(min-width: 1024px) 52vw, 100vw"
+                    sizes="(min-width: 1280px) 36vw, 100vw"
                     className="object-cover opacity-82 saturate-[0.78] transition duration-700 group-hover:scale-105 group-hover:saturate-100"
                   />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(38,56,45,0.04),rgba(38,56,45,0.74))]" />
@@ -79,7 +80,7 @@ export function WorkArchive() {
                     Live build
                   </span>
                 </a>
-                <div className="flex flex-col justify-between p-7 md:p-10 lg:p-12">
+                <div className="flex min-w-0 flex-col justify-between p-7 md:p-10">
                   <div>
                     <div className="mb-7 flex flex-wrap gap-3">
                       <span className="rounded-full border border-mist/35 bg-mist/12 px-3 py-1.5 text-xs uppercase tracking-label text-mist">
@@ -89,20 +90,20 @@ export function WorkArchive() {
                         {project.location}
                       </span>
                     </div>
-                    <h2 className="font-display text-[clamp(3.6rem,8vw,8.6rem)] font-medium leading-[0.84]">
-                      {project.title}
-                    </h2>
-                    <p className="mt-8 max-w-2xl text-xl leading-8 text-chalk/68">{project.description}</p>
+                      <h2 className="max-w-3xl overflow-hidden text-balance font-display text-[clamp(3rem,5.2vw,5.8rem)] font-medium leading-[0.9]">
+                        {project.title}
+                      </h2>
+                    <p className="mt-7 max-w-2xl text-lg leading-8 text-chalk/68">{project.description}</p>
                   </div>
 
-                  <div className="mt-12 grid gap-7 border-t border-chalk/14 pt-7 md:grid-cols-2">
-                    <div>
+                  <div className="mt-10 grid gap-6 border-t border-chalk/14 pt-7 md:grid-cols-2">
+                    <div className="min-w-0">
                       <p className="text-xs uppercase tracking-label text-chalk/38">Aether role</p>
-                      <p className="mt-4 leading-7 text-chalk/62">{project.role}</p>
+                      <p className="mt-4 text-sm leading-7 text-chalk/62 md:text-base">{project.role}</p>
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <p className="text-xs uppercase tracking-label text-chalk/38">Why it belongs</p>
-                      <p className="mt-4 leading-7 text-chalk/62">{project.alignment}</p>
+                      <p className="mt-4 text-sm leading-7 text-chalk/62 md:text-base">{project.alignment}</p>
                     </div>
                   </div>
 
@@ -116,7 +117,7 @@ export function WorkArchive() {
                       href={project.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="ml-auto inline-flex items-center gap-2 text-sm font-medium text-mist underline-offset-8 hover:underline"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-mist underline-offset-8 hover:underline md:ml-auto"
                     >
                       Visit live site <ArrowUpRight size={15} strokeWidth={1.6} />
                     </a>
@@ -124,6 +125,7 @@ export function WorkArchive() {
                 </div>
               </motion.article>
             ))}
+            </div>
           </div>
 
           <div className="grid gap-10 lg:grid-cols-[0.34fr_1fr]">

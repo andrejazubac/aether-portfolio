@@ -26,6 +26,21 @@ export const currentProjects = [
     alignment:
       "Aligned with Aether through luxury service presentation, architectural atmosphere, calm pacing, and high-trust visual composition.",
     tags: ["Construction", "Interior design", "Renovation", "Russia"]
+  },
+  {
+    index: "01",
+    title: "Beauty Boom Plus",
+    category: "Current project",
+    location: "Novi Sad, Serbia",
+    url: "https://beautyboomplus.vercel.app/",
+    image: "https://beautyboomplus.vercel.app/beauty-boom-campaign.png",
+    description:
+      "A premium hair and beauty salon website for a feminine studio experience, built around elegance, atmosphere, and booking intent.",
+    role:
+      "Digital experience direction, cinematic salon presentation, responsive frontend, service storytelling, and premium conversion flow.",
+    alignment:
+      "Aligned with Aether through luxury service design, emotional visual direction, smooth motion, and high-end brand positioning.",
+    tags: ["Hair salon", "Beauty studio", "Novi Sad", "Booking"]
   }
 ];
 
