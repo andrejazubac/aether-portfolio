@@ -1,23 +1,23 @@
 export const services = [
   {
-    title: "Digital Product Build",
+    title: "Digital Products & Apps",
     description:
-      "Strategy, UX structure, frontend implementation, backend foundations, and launch-ready execution."
+      "Custom web platforms and mobile applications engineered using modern tech stacks (Next.js, Flutter) with clean, scalable architecture."
   },
   {
-    title: "AI Automation Systems",
+    title: "Workflow Automation",
     description:
-      "Custom automation layers, AI agents, operational workflows, internal tools, and intelligent product logic."
+      "Replacing manual admin operations with automated agent workflows, trigger pipelines, CRM syncing, and Viber/WhatsApp custom systems."
   },
   {
-    title: "Premium Web Presence",
+    title: "Performance Websites",
     description:
-      "High-end studio, founder, service, and product websites built with strong typography, motion, and performance."
+      "Bespoke, cinematic websites constructed with high-end typography, Framer Motion transitions, speed optimization, and local SEO craft."
   },
   {
-    title: "Architecture Consulting",
+    title: "Business Boosting Mindset",
     description:
-      "Technical direction for MVPs, refactors, scalable systems, product decisions, and long-term maintainability."
+      "Aligning development directly with business conversion goals, marketing strategy, competitor advantages, and predictable cash flow."
   }
 ];
 

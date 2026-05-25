@@ -2,7 +2,7 @@ export const projects = [
   {
     index: "01",
     title: "AI Ops Command System",
-    category: "AI Automation Platform",
+    category: "Workflow Automation",
     description:
       "A founder-facing operations layer that turns repeated client, sales, and delivery tasks into monitored AI-assisted workflows.",
     challenge:
@@ -20,7 +20,7 @@ export const projects = [
   {
     index: "02",
     title: "Editorial Studio Presence",
-    category: "Premium Web Experience",
+    category: "High-End Website",
     description:
       "A cinematic brand website direction for a premium creative service business, built around atmosphere, clarity, and conversion.",
     challenge:
@@ -38,7 +38,7 @@ export const projects = [
   {
     index: "03",
     title: "Founder Intelligence Room",
-    category: "Product Engineering",
+    category: "Digital Product & App",
     description:
       "A calm decision surface for tracking business signals, project health, client activity, and automation performance.",
     challenge:

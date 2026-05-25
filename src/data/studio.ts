@@ -14,6 +14,7 @@ export const studio = {
 export const navigation = [
   { label: "Studio", href: "#studio" },
   { label: "Work", href: "/work" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Systems", href: "#systems" },
   { label: "Services", href: "#services" },
   { label: "Contact", href: "#contact" }

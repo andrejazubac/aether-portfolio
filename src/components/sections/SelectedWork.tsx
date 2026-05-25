@@ -4,95 +4,112 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { useLanguage } from "@/context/LanguageContext";
 import { projects } from "@/data/projects";
 
-const accentClass: Record<string, string> = {
-  moss: "bg-moss",
-  oxide: "bg-oxide",
-  mist: "bg-mist"
-};
-
 export function SelectedWork() {
+  const { t } = useLanguage();
+
   return (
-    <section id="work" className="relative overflow-hidden bg-carbon px-5 py-24 text-chalk md:px-10 md:py-36">
-      <div className="absolute inset-0 opacity-30 dark-grid-lines" />
-      <div className="absolute left-1/2 top-12 h-[36rem] w-[36rem] -translate-x-1/2 rounded-full bg-mist/10 blur-3xl" />
-      <div className="mx-auto max-w-[1560px]">
-        <div className="relative mb-16 grid gap-8 lg:grid-cols-[0.35fr_1fr]">
-          <SectionLabel index="02" label="Selected work" tone="light" />
-          <div>
-            <h2 className="max-w-5xl font-display text-[clamp(3.2rem,8vw,8.5rem)] font-medium leading-[0.88] text-balance">
-              Case studies with atmosphere, logic, and business shape.
-            </h2>
+    <section id="work" className="relative overflow-hidden bg-porcelain px-5 py-20 text-carbon md:px-10 md:py-28">
+      {/* Editorial grid lines */}
+      <div className="absolute inset-0 opacity-25 grid-lines" />
+      <div className="absolute left-1/3 top-10 h-[30rem] w-[30rem] rounded-full bg-mist/20 blur-3xl" />
+
+      <div className="relative mx-auto max-w-[1560px]">
+        {/* Header Grid */}
+        <div className="relative mb-12 grid gap-8 lg:grid-cols-[0.25fr_1.75fr]">
+          <SectionLabel index="03" label={t("selectedWork.title")} tone="dark" />
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div>
+              <span className="text-[10px] uppercase tracking-label text-oxide font-bold">
+                {t("selectedWork.tag")}
+              </span>
+              <h2 className="mt-2 max-w-3xl font-display text-[clamp(2.4rem,5.6vw,4.8rem)] font-medium leading-[0.92] text-balance">
+                {t("selectedWork.subtitle")}
+              </h2>
+            </div>
             <Link
               href="/work"
-              className="mt-8 inline-flex rounded-full border border-chalk/18 px-5 py-3 text-sm font-medium text-chalk/72 transition-colors duration-300 hover:border-mist/50 hover:text-chalk"
+              className="shrink-0 group inline-flex items-center gap-2 rounded-full border border-carbon/15 bg-chalk/60 px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-carbon/75 transition-all duration-300 hover:border-oxide hover:text-carbon"
             >
-              Explore reference archive
+              <span>{t("selectedWork.explore")}</span>
+              <span className="text-[10px] font-display text-oxide font-bold">→</span>
             </Link>
           </div>
         </div>
 
-        <div className="relative space-y-7">
-          {projects.map((project) => (
-            <motion.article
-              key={project.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10% 0px" }}
-              transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-              className="group grid gap-0 overflow-hidden border border-chalk/12 bg-chalk/[0.035] md:grid-cols-[0.92fr_1.08fr]"
-            >
-              <div className="relative min-h-[24rem] overflow-hidden md:min-h-[34rem]">
-                <Image
-                  src={project.image}
-                  alt={`${project.title} visual placeholder`}
-                  fill
-                  sizes="(min-width: 768px) 46vw, 100vw"
-                  className="object-cover opacity-82 saturate-[0.82] transition duration-700 group-hover:scale-105 group-hover:saturate-100"
-                />
-                <div className={`absolute inset-0 bg-gradient-to-br ${project.palette} opacity-28 mix-blend-overlay`} />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,17,15,0.08),rgba(17,17,15,0.72))]" />
-                <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-                  <span className="font-display text-7xl text-chalk/70">{project.index}</span>
-                  <span className={`h-16 w-16 rounded-full ${accentClass[project.accent]} opacity-90`} />
-                </div>
-              </div>
+        {/* Compact Grid Layout */}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project, idx) => {
+            const pKey = `selectedWork.projects.p${idx + 1}`;
+            const title = t(`${pKey}.title`);
+            const category = t(`${pKey}.category`);
+            const description = t(`${pKey}.desc`);
+            const outcome = t(`${pKey}.outcome`);
 
-              <div className="flex flex-col justify-between p-7 md:p-10 lg:p-12">
+            return (
+              <motion.article
+                key={project.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-8% 0px" }}
+                transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: idx * 0.08 }}
+                className="group flex flex-col justify-between border border-carbon/10 bg-chalk/75 shadow-sm transition-all duration-300 hover:border-oxide/40 hover:bg-chalk hover:shadow-soft"
+              >
                 <div>
-                  <p className="mb-5 text-xs uppercase tracking-label text-stone">{project.category}</p>
-                  <h3 className="max-w-3xl font-display text-[clamp(3rem,6vw,7rem)] font-medium leading-[0.86]">
-                    {project.title}
-                  </h3>
-                  <p className="mt-8 max-w-2xl text-lg leading-8 text-chalk/68">{project.description}</p>
+                  {/* Image Header */}
+                  <div className="relative h-48 w-full overflow-hidden border-b border-carbon/8 bg-carbon/5">
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} case study`}
+                      fill
+                      sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
+                      className="object-cover opacity-75 saturate-[0.8] transition-transform duration-700 group-hover:scale-105 group-hover:saturate-100"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-porcelain/35 opacity-40 mix-blend-overlay" />
+                    <div className="absolute top-4 left-4 rounded bg-carbon/80 px-2 py-0.5 text-[10px] font-bold text-chalk uppercase tracking-wider">
+                      {project.index}
+                    </div>
+                  </div>
+
+                  {/* Card Text Content */}
+                  <div className="p-6">
+                    <span className="text-[9px] uppercase tracking-label text-oxide font-bold">
+                      {category}
+                    </span>
+                    
+                    <h3 className="mt-2 font-display text-2xl font-semibold leading-tight text-carbon group-hover:text-oxide transition-colors duration-300">
+                      {title}
+                    </h3>
+                    
+                    <p className="mt-3 text-xs leading-relaxed text-carbon/62 line-clamp-3">
+                      {description}
+                    </p>
+
+                    <div className="mt-5 border-t border-carbon/8 pt-4 space-y-2">
+                      <p className="text-[10px] leading-relaxed text-carbon/68">
+                        <span className="font-semibold text-carbon">{t("selectedWork.outcomeLabel")}</span>
+                        {outcome}
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="mt-12 grid gap-6 border-t border-chalk/12 pt-7 lg:grid-cols-3">
-                  <div>
-                    <p className="mb-3 text-xs uppercase tracking-label text-chalk/35">Problem</p>
-                    <p className="text-sm leading-6 text-chalk/58">{project.challenge}</p>
-                  </div>
-                  <div>
-                    <p className="mb-3 text-xs uppercase tracking-label text-chalk/35">Solution</p>
-                    <p className="text-sm leading-6 text-chalk/58">{project.solution}</p>
-                  </div>
-                  <div>
-                    <p className="mb-3 text-xs uppercase tracking-label text-chalk/35">Outcome</p>
-                    <p className="text-sm leading-6 text-chalk/58">{project.outcome}</p>
-                  </div>
-                </div>
-
-                <div className="mt-8 flex flex-wrap gap-2">
+                {/* Bottom Tags */}
+                <div className="px-6 pb-6 pt-2 flex flex-wrap gap-1.5">
                   {project.tags.map((tag) => (
-                    <span key={tag} className="rounded-full border border-chalk/15 bg-chalk/[0.03] px-3 py-1 text-xs text-chalk/55">
+                    <span
+                      key={tag}
+                      className="rounded-full bg-carbon/5 border border-carbon/5 px-2.5 py-0.5 text-[9.5px] text-carbon/55 font-medium"
+                    >
                       {tag}
                     </span>
                   ))}
                 </div>
-              </div>
-            </motion.article>
-          ))}
+              </motion.article>
+            );
+          })}
         </div>
       </div>
     </section>

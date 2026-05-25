@@ -1,75 +1,131 @@
 "use client";
 
 import { motion } from "framer-motion";
-import dynamic from "next/dynamic";
-import { AetherField } from "@/components/sections/AetherField";
+import { Sparkles, ArrowDownRight } from "lucide-react";
 import { MagneticButton } from "@/components/ui/MagneticButton";
+import { useLanguage } from "@/context/LanguageContext";
 import { studio } from "@/data/studio";
 
-const AetherOrb = dynamic(
-  () => import("@/components/visuals/AetherOrb").then((mod) => mod.AetherOrb),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="flex h-[24rem] items-center justify-center md:h-[34rem] lg:h-[42rem]">
-        <div className="h-40 w-40 rounded-full border border-mist/35 bg-mist/10" />
-      </div>
-    )
-  }
-);
-
 export function Hero() {
+  const { t } = useLanguage();
+
+  const disciplines = [
+    {
+      index: "01",
+      title: t("hero.d1_title"),
+      desc: t("hero.d1_desc")
+    },
+    {
+      index: "02",
+      title: t("hero.d2_title"),
+      desc: t("hero.d2_desc")
+    },
+    {
+      index: "03",
+      title: t("hero.d3_title"),
+      desc: t("hero.d3_desc")
+    },
+    {
+      index: "04",
+      title: t("hero.d4_title"),
+      desc: t("hero.d4_desc")
+    }
+  ];
+
   return (
-    <section className="dark-grid-lines relative flex min-h-screen overflow-hidden bg-carbon px-5 pb-12 pt-20 text-chalk md:px-10 md:pb-14 md:pt-20">
-      <AetherField />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_36%,rgba(203,216,220,0.18),transparent_36%),radial-gradient(circle_at_26%_70%,rgba(166,95,62,0.11),transparent_34%),linear-gradient(180deg,rgba(17,17,15,0.36),rgba(17,17,15,0.96))]" />
-      <div className="relative z-10 mx-auto flex w-full max-w-[1560px] flex-col justify-between gap-6">
-        <div className="grid flex-1 gap-4 lg:grid-cols-[0.92fr_0.88fr] lg:items-start">
+    <section className="grid-lines relative flex min-h-screen overflow-hidden bg-porcelain px-5 pb-12 pt-28 text-carbon md:px-10 md:pb-16 md:pt-32">
+      {/* Decorative Warm Gradients */}
+      <div className="absolute right-[10%] top-[10%] h-[32rem] w-[32rem] rounded-full bg-mist/25 blur-3xl" />
+      <div className="absolute left-[5%] bottom-[15%] h-[28rem] w-[28rem] rounded-full bg-oxide/8 blur-3xl" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,transparent_20%,rgba(243,240,234,0.4)_100%)]" />
+
+      <div className="relative z-10 mx-auto flex w-full max-w-[1560px] flex-col justify-between gap-12">
+        {/* Main Branding & Editorial copy */}
+        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:gap-16">
           <motion.div
-            initial={{ opacity: 0, y: 36 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
+            transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
           >
-            <p className="mb-5 text-xs uppercase tracking-label text-stone">
-              Premium digital studio / Product engineering atelier
-            </p>
-            <h1 className="max-w-5xl font-display text-[clamp(4.2rem,10.6vw,11rem)] font-medium leading-[0.8] text-balance">
-              Aether Studio
+            <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-label text-oxide">
+              <Sparkles size={11} className="animate-pulse" />
+              <span>{t("hero.tag")}</span>
+            </div>
+            
+            <h1 className="mt-4 max-w-5xl font-display text-[clamp(4.2rem,11.2vw,11.8rem)] font-medium leading-[0.8] text-balance tracking-tight">
+              {t("hero.title")}
             </h1>
+
+            <p className="mt-8 max-w-2xl font-display text-2xl leading-relaxed text-carbon/75 md:text-3xl italic">
+              {t("hero.subtitle")}
+            </p>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.45 }}
-            className="relative -mt-8 min-h-[20rem] overflow-visible md:-mt-10 lg:-mt-20 lg:min-h-[31rem]"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+            className="flex flex-col gap-6 lg:mt-16"
           >
-            <AetherOrb />
+            <p className="max-w-md text-sm leading-relaxed text-carbon/62">
+              {t("hero.description")}
+            </p>
+            
+            <div className="flex flex-wrap items-center gap-4">
+              <MagneticButton href={`mailto:${studio.email}`} variant="dark">
+                {t("hero.ctaStart")}
+              </MagneticButton>
+              <a
+                href="/pricing"
+                className="group inline-flex items-center gap-2 text-xs uppercase tracking-label text-carbon/72 transition-colors hover:text-oxide font-semibold"
+              >
+                <span>{t("hero.ctaPricing")}</span>
+                <ArrowDownRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
+              </a>
+            </div>
           </motion.div>
         </div>
 
+        {/* Dynamic Coordinates Grid */}
         <motion.div
-          initial={{ opacity: 0, y: 28 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.72 }}
-          className="grid gap-6 border-t border-chalk/14 pt-5 lg:grid-cols-[0.34fr_0.66fr] lg:items-end"
+          transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1], delay: 0.45 }}
+          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 border-t border-carbon/10 pt-8"
         >
-          <div className="text-sm text-chalk/48">
-            <p>Founded by {studio.founder}</p>
-            <p className="mt-2">{studio.location}</p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
-            <p className="max-w-2xl text-lg leading-8 text-chalk/76 md:text-xl">
-              {studio.positioning}
-            </p>
-            <div className="flex flex-wrap items-center gap-4 md:justify-end">
-              <MagneticButton href={`mailto:${studio.email}`} variant="light">
-                Start a project
-              </MagneticButton>
-              <a href="#work" className="text-sm text-chalk/62 underline-offset-8 transition-colors duration-300 hover:text-chalk hover:underline">
-                View studio directions
-              </a>
+          {disciplines.map((disc) => (
+            <div
+              key={disc.index}
+              className="group relative flex flex-col justify-between border border-carbon/8 bg-chalk/45 p-6 shadow-sm transition-all duration-300 hover:border-oxide/30 hover:bg-chalk/82 hover:shadow-soft"
+            >
+              <div className="flex justify-between items-start">
+                <span className="font-display text-xs text-oxide/70 font-semibold">{disc.index}</span>
+                <span className="h-1.5 w-1.5 rounded-full bg-carbon/15 group-hover:bg-oxide transition-colors duration-300" />
+              </div>
+              <div className="mt-8">
+                <h3 className="text-base font-semibold text-carbon group-hover:text-oxide transition-colors duration-300">
+                  {disc.title}
+                </h3>
+                <p className="mt-2 text-xs leading-relaxed text-carbon/58">
+                  {disc.desc}
+                </p>
+              </div>
             </div>
+          ))}
+        </motion.div>
+
+        {/* Footer info strip */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
+          className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-carbon/10 pt-5 text-[11px] uppercase tracking-label text-carbon/45"
+        >
+          <div>
+            <span>{t("hero.founded")}: {studio.founder}</span>
+          </div>
+          <div>
+            <span>{t("hero.coordinates")}: {studio.location}</span>
           </div>
         </motion.div>
       </div>
