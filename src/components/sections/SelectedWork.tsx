@@ -6,6 +6,7 @@ import Link from "next/link";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { useLanguage } from "@/context/LanguageContext";
 import { projects } from "@/data/projects";
+import { renderFormattedText } from "@/lib/utils";
 
 export function SelectedWork() {
   const { t } = useLanguage();
@@ -14,7 +15,7 @@ export function SelectedWork() {
     <section id="work" className="relative overflow-hidden bg-porcelain px-5 py-20 text-carbon md:px-10 md:py-28">
       {/* Editorial grid lines */}
       <div className="absolute inset-0 opacity-25 grid-lines" />
-      <div className="absolute left-1/3 top-10 h-[30rem] w-[30rem] rounded-full bg-mist/20 blur-3xl" />
+      <div className="absolute left-1/3 top-10 h-[30rem] w-[30rem] rounded-full bg-mist/20 blur-3xl animate-drift-slow" />
 
       <div className="relative mx-auto max-w-[1560px]">
         {/* Header Grid */}
@@ -26,7 +27,7 @@ export function SelectedWork() {
                 {t("selectedWork.tag")}
               </span>
               <h2 className="mt-2 max-w-3xl font-display text-[clamp(2.4rem,5.6vw,4.8rem)] font-medium leading-[0.92] text-balance">
-                {t("selectedWork.subtitle")}
+                {renderFormattedText(t("selectedWork.subtitle"))}
               </h2>
             </div>
             <Link
@@ -55,8 +56,10 @@ export function SelectedWork() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-8% 0px" }}
                 transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1], delay: idx * 0.08 }}
-                className="group flex flex-col justify-between border border-carbon/10 bg-chalk/75 shadow-sm transition-all duration-300 hover:border-oxide/40 hover:bg-chalk hover:shadow-soft"
+                className="group relative flex flex-col justify-between overflow-hidden border border-carbon/10 bg-gradient-to-br from-chalk to-porcelain/60 shadow-sm transition-all duration-300 hover:border-oxide/40 hover:shadow-soft"
               >
+                {/* Top accent interactive bar */}
+                <div className="absolute top-0 left-0 w-full h-[2.5px] bg-oxide scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-10" />
                 <div>
                   {/* Image Header */}
                   <div className="relative h-48 w-full overflow-hidden border-b border-carbon/8 bg-carbon/5">

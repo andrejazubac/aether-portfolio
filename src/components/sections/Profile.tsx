@@ -5,6 +5,7 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { useLanguage } from "@/context/LanguageContext";
 import { technicalStack } from "@/data/expertise";
 import { studio } from "@/data/studio";
+import { renderFormattedText } from "@/lib/utils";
 
 export function Profile() {
   const { t } = useLanguage();
@@ -15,8 +16,8 @@ export function Profile() {
       className="relative overflow-hidden bg-porcelain px-5 py-20 text-carbon md:px-10 md:py-28"
     >
       {/* Soft background glow */}
-      <div className="absolute left-[-10rem] top-10 h-[30rem] w-[30rem] rounded-full bg-mist/35 blur-3xl" />
-      <div className="absolute bottom-[-8rem] right-[-8rem] h-[26rem] w-[26rem] rounded-full bg-oxide/10 blur-3xl" />
+      <div className="absolute left-[-10rem] top-10 h-[30rem] w-[30rem] rounded-full bg-mist/35 blur-3xl animate-drift-slow" />
+      <div className="absolute bottom-[-8rem] right-[-8rem] h-[26rem] w-[26rem] rounded-full bg-oxide/10 blur-3xl animate-drift-medium" />
       <div className="absolute inset-0 grid-lines opacity-25" />
 
       <div className="relative mx-auto max-w-[1560px]">
@@ -31,10 +32,10 @@ export function Profile() {
                   {t("profile.tag")}
                 </p>
                 <h2 className="mt-4 font-display text-[clamp(2.5rem,5.6vw,5.2rem)] font-medium leading-[0.9] text-balance">
-                  {t("profile.manifesto")}
+                  {renderFormattedText(t("profile.manifesto"))}
                 </h2>
                 <p className="mt-8 text-base leading-8 text-carbon/68">
-                  {t("profile.bio")}
+                  {renderFormattedText(t("profile.bio"))}
                 </p>
               </Reveal>
 
@@ -62,12 +63,12 @@ export function Profile() {
                   const title = t(`profile.c${item}_title`);
                   const detail = t(`profile.c${item}_desc`);
                   return (
-                    <Reveal key={item} delay={index * 0.08} className="border-b border-carbon/10 pb-5 last:border-0 last:pb-0">
-                      <h3 className="text-lg font-semibold flex items-baseline gap-2.5">
+                    <Reveal key={item} delay={index * 0.08} className="border-b border-carbon/10 pb-5 last:border-0 last:pb-0 group/item p-4 -mx-4 rounded-xl hover:bg-chalk/60 hover:shadow-soft transition-all duration-300">
+                      <h3 className="text-lg font-semibold flex items-baseline gap-2.5 group-hover/item:text-oxide transition-colors duration-300">
                         <span className="font-display text-xs text-oxide">0{item}</span>
                         {title}
                       </h3>
-                      <p className="mt-2 text-sm leading-relaxed text-carbon/60">
+                      <p className="mt-2 text-sm leading-relaxed text-carbon/60 group-hover/item:text-carbon/80 transition-colors duration-300">
                         {detail}
                       </p>
                     </Reveal>

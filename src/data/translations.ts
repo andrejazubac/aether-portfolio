@@ -12,8 +12,8 @@ export const translations = {
     hero: {
       tag: "Premium digital atelier & engineering studio",
       title: "Aether Studio",
-      subtitle: "Custom applications, digital products, automated workflows, and performance-first web platforms built with a business-boosting growth mindset.",
-      description: "We design, architect, and engineer digital platforms that look expensive and function with absolute precision. We replace scattered tools, slow architectures, and generic layouts with custom products designed to boost conversions.",
+      subtitle: "Custom **applications**, **digital products**, **automated workflows**, and performance-first web platforms built with a **business-boosting growth mindset**.",
+      description: "We design, architect, and engineer digital platforms that __look expensive__ and function with __absolute precision__. We replace scattered tools, slow architectures, and generic layouts with custom products designed to __boost conversions__.",
       ctaStart: "Start a project",
       ctaPricing: "View investment plans",
       founded: "Founder",
@@ -30,8 +30,8 @@ export const translations = {
     profile: {
       tag: "Manifesto & Direction",
       title: "Studio Profile",
-      manifesto: "Calm digital systems. Cinematic interfaces. AI built for real work.",
-      bio: "Aether Studio is the digital atelier of Andreja Zubac: senior software engineer, product architect, and creative technologist. We design and build high-performance web systems, bespoke AI workflows, and cinematic web experiences structured for speed, stability, and visual emotion.",
+      manifesto: "**Calm digital systems**. **Cinematic interfaces**. **AI built for real work**.",
+      bio: "Aether Studio is the digital atelier of Andreja Zubac: senior software engineer, product architect, and creative technologist. We design and build __high-performance web systems__, __bespoke AI workflows__, and __cinematic web experiences__ structured for speed, stability, and visual emotion.",
       contactLabel: "Direct coordinate",
       capacitiesTag: "Core Capacities",
       technicalTag: "Technical Architecture",
@@ -47,7 +47,7 @@ export const translations = {
     selectedWork: {
       tag: "Case Studies",
       title: "Selected Work",
-      subtitle: "Digital products, custom applications, and automated systems engineered for growth.",
+      subtitle: "**Digital products**, **custom applications**, and **automated systems** engineered for growth.",
       explore: "Explore full archive",
       outcomeLabel: "Outcome: ",
       projects: {
@@ -124,8 +124,8 @@ export const translations = {
     hero: {
       tag: "Premium digitalni atelje i inženjerski studio",
       title: "Aether Studio",
-      subtitle: "Izrada unikatnih aplikacija, digitalnih proizvoda, automatizacije procesa i brzih sajtova prilagođenih za rast vašeg biznisa.",
-      description: "Dizajniramo i programiramo digitalne platforme koje izgledaju luksuzno i funkcionišu sa apsolutnom preciznošću. Zamenjujemo rasute alate, spore arhitekture i generičke šablone prilagođenim proizvodima koji donose profit.",
+      subtitle: "Izrada unikatnih **aplikacija**, **digitalnih proizvoda**, **automatizacije procesa** i brzih sajtova prilagođenih za **rast vašeg biznisa**.",
+      description: "Dizajniramo i programiramo digitalne platforme koje __izgledaju luksuzno__ i funkcionišu sa __apsolutnom preciznošću__. Zamenjujemo rasute alate, spore arhitekture i generičke šablone prilagođenim proizvodima koji __donose profit__.",
       ctaStart: "Započni projekat",
       ctaPricing: "Pogledaj cene",
       founded: "Osnivač",
@@ -142,8 +142,8 @@ export const translations = {
     profile: {
       tag: "Manifesto i Pravac",
       title: "Profil Studija",
-      manifesto: "Mirni digitalni sistemi. Cinematični interfejsi. AI kreiran za stvaran rad.",
-      bio: "Aether Studio je digitalni atelje iza kog stoji Andreja Zubac: senior softverski inženjer, arhitekta proizvoda i kreativni programer. Dizajniramo i programiramo veb sisteme visokih performansi, automatizaciju procesa i cinematična veb iskustva kreirana za brzinu, stabilnost i vizuelnu emociju.",
+      manifesto: "**Mirni digitalni sistemi**. **Cinematični interfejsi**. **AI kreiran za stvaran rad**.",
+      bio: "Aether Studio je digitalni atelje iza kog stoji Andreja Zubac: senior softverski inženjer, arhitekta proizvoda i kreativni programer. Dizajniramo i programiramo __veb sisteme visokih performansi__, __automatizaciju procesa__ i __cinematična veb iskustva__ kreirana za brzinu, stabilnost i vizuelnu emociju.",
       contactLabel: "Direktan kontakt",
       capacitiesTag: "Ključne Sposobnosti",
       technicalTag: "Tehnička Arhitektura",
@@ -159,7 +159,7 @@ export const translations = {
     selectedWork: {
       tag: "Studije Slučaja",
       title: "Izdvojeni Radovi",
-      subtitle: "Digitalni proizvodi, aplikacije po meri i automatizovani sistemi kreirani za rast.",
+      subtitle: "**Digitalni proizvodi**, **aplikacije po meri** i **automatizovani sistemi** kreirani za rast.",
       explore: "Istraži celu arhivu",
       outcomeLabel: "Rezultat: ",
       projects: {

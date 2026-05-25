@@ -74,6 +74,26 @@ textarea {
   background-size: 24px 24px, 144px 144px, 144px 144px;
 }
 
+@keyframes drift-slow {
+  0% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(40px, -60px) scale(1.1); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes drift-medium {
+  0% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(-30px, 40px) scale(0.95); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-drift-slow {
+  animation: drift-slow 22s infinite ease-in-out;
+}
+
+.animate-drift-medium {
+  animation: drift-medium 18s infinite ease-in-out;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

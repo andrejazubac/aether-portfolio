@@ -5,6 +5,7 @@ import { Sparkles, ArrowDownRight } from "lucide-react";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { useLanguage } from "@/context/LanguageContext";
 import { studio } from "@/data/studio";
+import { renderFormattedText } from "@/lib/utils";
 
 export function Hero() {
   const { t } = useLanguage();
@@ -35,8 +36,8 @@ export function Hero() {
   return (
     <section className="grid-lines relative flex min-h-screen overflow-hidden bg-porcelain px-5 pb-12 pt-28 text-carbon md:px-10 md:pb-16 md:pt-32">
       {/* Decorative Warm Gradients */}
-      <div className="absolute right-[10%] top-[10%] h-[32rem] w-[32rem] rounded-full bg-mist/25 blur-3xl" />
-      <div className="absolute left-[5%] bottom-[15%] h-[28rem] w-[28rem] rounded-full bg-oxide/8 blur-3xl" />
+      <div className="absolute right-[10%] top-[10%] h-[32rem] w-[32rem] rounded-full bg-mist/25 blur-3xl animate-drift-slow" />
+      <div className="absolute left-[5%] bottom-[15%] h-[28rem] w-[28rem] rounded-full bg-oxide/8 blur-3xl animate-drift-medium" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,transparent_20%,rgba(243,240,234,0.4)_100%)]" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1560px] flex-col justify-between gap-12">
@@ -57,7 +58,7 @@ export function Hero() {
             </h1>
 
             <p className="mt-8 max-w-2xl font-display text-2xl leading-relaxed text-carbon/75 md:text-3xl italic">
-              {t("hero.subtitle")}
+              {renderFormattedText(t("hero.subtitle"))}
             </p>
           </motion.div>
 
@@ -68,7 +69,7 @@ export function Hero() {
             className="flex flex-col gap-6 lg:mt-16"
           >
             <p className="max-w-md text-sm leading-relaxed text-carbon/62">
-              {t("hero.description")}
+              {renderFormattedText(t("hero.description"))}
             </p>
             
             <div className="flex flex-wrap items-center gap-4">

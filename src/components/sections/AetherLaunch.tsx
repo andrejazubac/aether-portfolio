@@ -18,8 +18,8 @@ export function AetherLaunch() {
       className="relative overflow-hidden bg-porcelain px-5 py-14 text-carbon md:px-10 md:py-20"
     >
       {/* Decorative Gradients */}
-      <div className="absolute left-[-10rem] top-5 h-[24rem] w-[24rem] rounded-full bg-mist/30 blur-3xl" />
-      <div className="absolute bottom-[-10rem] right-[-10rem] h-[28rem] w-[28rem] rounded-full bg-oxide/8 blur-3xl" />
+      <div className="absolute left-[-10rem] top-5 h-[24rem] w-[24rem] rounded-full bg-mist/30 blur-3xl animate-drift-slow" />
+      <div className="absolute bottom-[-10rem] right-[-10rem] h-[28rem] w-[28rem] rounded-full bg-oxide/8 blur-3xl animate-drift-medium" />
       <div className="absolute inset-0 grid-lines opacity-20" />
 
       <div className="relative mx-auto max-w-[1560px]">

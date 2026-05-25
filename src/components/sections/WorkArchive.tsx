@@ -7,6 +7,7 @@ import { useRef } from "react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { useLanguage } from "@/context/LanguageContext";
 import { currentProjects, workReferences } from "@/data/workReferences";
+import { renderFormattedText } from "@/lib/utils";
 
 const categoryStyles = {
   Motion: "border-mist/45 bg-mist/18 text-mist",
@@ -30,8 +31,8 @@ export function WorkArchive() {
     <main className="bg-porcelain text-carbon">
       <section ref={heroRef} className="relative min-h-[86vh] overflow-hidden bg-carbon px-5 pt-28 text-chalk md:px-10">
         <div className="absolute inset-0 dark-grid-lines opacity-45" />
-        <div className="absolute right-[-10rem] top-[-10rem] h-[40rem] w-[40rem] rounded-full bg-mist/20 blur-3xl" />
-        <div className="absolute bottom-[-12rem] left-[-8rem] h-[32rem] w-[32rem] rounded-full bg-oxide/12 blur-3xl" />
+        <div className="absolute right-[-10rem] top-[-10rem] h-[40rem] w-[40rem] rounded-full bg-mist/20 blur-3xl animate-drift-slow" />
+        <div className="absolute bottom-[-12rem] left-[-8rem] h-[32rem] w-[32rem] rounded-full bg-oxide/12 blur-3xl animate-drift-medium" />
 
         <motion.div style={{ y: heroY }} className="relative mx-auto grid max-w-[1560px] gap-12 lg:grid-cols-[0.35fr_1fr]">
           <SectionLabel index="W" label={t("workArchive.tag")} tone="light" />
@@ -41,7 +42,7 @@ export function WorkArchive() {
             </p>
             <div className="mt-10 grid gap-8 md:grid-cols-[0.7fr_0.3fr] md:items-end">
               <p className="max-w-2xl text-xl leading-8 text-chalk/68">
-                {t("workArchive.desc")}
+                {renderFormattedText(t("workArchive.desc"))}
               </p>
               <p className="text-sm uppercase tracking-label text-chalk/42 md:text-right">
                 {t("workArchive.subTag")}

@@ -132,12 +132,15 @@ export function PricingSection() {
             ? content.oneTime.map((pkg) => (
                 <Reveal
                   key={pkg.index}
-                  className={`relative flex flex-col justify-between p-8 md:p-10 rounded-2xl transition-all duration-300 bg-chalk/75 border ${
+                  className={`relative flex flex-col justify-between p-8 md:p-10 rounded-2xl transition-all duration-300 bg-gradient-to-br from-chalk to-porcelain/60 border ${
                     pkg.popular
                       ? "border-oxide shadow-soft scale-[1.01]"
                       : "border-carbon/10 hover:border-carbon/25"
                   }`}
                 >
+                  {pkg.popular && (
+                    <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-oxide/8 to-transparent blur-xl" />
+                  )}
                   {pkg.popular && (
                     <div className="absolute -top-3 left-8 flex items-center gap-1 rounded-full bg-oxide px-3.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-chalk">
                       <Sparkles size={9} />
@@ -163,7 +166,7 @@ export function PricingSection() {
 
                     {/* Price block */}
                     <div className="mt-6 border-t border-b border-carbon/10 py-5 my-6">
-                      <div className="font-display text-4xl font-semibold leading-none">
+                      <div className={`font-display text-4xl font-semibold leading-none ${pkg.popular ? "text-oxide" : "text-carbon"}`}>
                         {pkg.price}
                       </div>
                       <p className="mt-1.5 text-xs text-carbon/48 italic">
@@ -196,12 +199,15 @@ export function PricingSection() {
             : content.retainers.map((pkg) => (
                 <Reveal
                   key={pkg.index}
-                  className={`relative flex flex-col justify-between p-8 md:p-10 rounded-2xl transition-all duration-300 bg-chalk/75 border ${
+                  className={`relative flex flex-col justify-between p-8 md:p-10 rounded-2xl transition-all duration-300 bg-gradient-to-br from-chalk to-porcelain/60 border ${
                     pkg.popular
                       ? "border-moss shadow-soft scale-[1.01]"
                       : "border-carbon/10 hover:border-carbon/25"
                   }`}
                 >
+                  {pkg.popular && (
+                    <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-moss/8 to-transparent blur-xl" />
+                  )}
                   {pkg.popular && (
                     <div className="absolute -top-3 left-8 flex items-center gap-1 rounded-full bg-moss px-3.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-chalk">
                       <Sparkles size={9} />
@@ -228,7 +234,7 @@ export function PricingSection() {
                     {/* Price block */}
                     <div className="mt-6 border-t border-b border-carbon/10 py-5 my-6">
                       <div className="flex items-baseline gap-1.5">
-                        <span className="font-display text-4xl font-semibold leading-none">
+                        <span className={`font-display text-4xl font-semibold leading-none ${pkg.popular ? "text-moss" : "text-carbon"}`}>
                           {getDisplayPrice(pkg.price, true)}
                         </span>
                         <span className="text-sm text-carbon/50">

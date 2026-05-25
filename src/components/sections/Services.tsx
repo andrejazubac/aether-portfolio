@@ -31,10 +31,13 @@ export function Services() {
           {[1, 2, 3, 4].map((item) => {
             const title = t(`services.s${item}_title`);
             const description = t(`services.s${item}_desc`);
+            const accentBg = item % 2 === 0 ? "bg-moss" : "bg-oxide";
 
             return (
               <Reveal key={item}>
-                <article className="min-h-60 border border-carbon/10 bg-chalk/75 p-8 transition-all duration-300 hover:border-oxide/40 hover:bg-chalk shadow-sm flex flex-col justify-between">
+                <article className="relative overflow-hidden min-h-60 border border-carbon/10 bg-gradient-to-br from-chalk to-porcelain/60 p-8 transition-all duration-300 hover:border-oxide/40 hover:shadow-soft flex flex-col justify-between group">
+                  {/* Top accent interactive bar */}
+                  <div className={`absolute top-0 left-0 w-full h-[3px] ${accentBg} scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`} />
                   <div>
                     <h3 className="font-display text-3xl font-semibold leading-tight text-carbon">
                       {title}
