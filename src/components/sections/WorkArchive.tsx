@@ -57,7 +57,7 @@ export function WorkArchive() {
           <div className="mb-20 grid gap-10 lg:grid-cols-[0.34fr_1fr]">
             <SectionLabel index="01" label={t("workArchive.currentLabel")} />
             
-            <div className="space-y-8">
+            <div className="space-y-8 lg:border-l lg:border-carbon/10 lg:pl-10">
               {currentProjects.map((project, idx) => {
                 // Determine localized details if needed, or fallback to default
                 const isSRB = lang === "sr";
@@ -166,7 +166,7 @@ export function WorkArchive() {
               </div>
             </aside>
 
-            <div className="space-y-8">
+            <div className="space-y-8 lg:border-l lg:border-carbon/10 lg:pl-10">
               {workReferences.map((item, index) => (
                 <motion.article
                   key={item.title}

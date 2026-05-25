@@ -20,7 +20,7 @@ export function SelectedWork() {
         {/* Header Grid */}
         <div className="relative mb-12 grid gap-8 lg:grid-cols-[0.25fr_1.75fr]">
           <SectionLabel index="03" label={t("selectedWork.title")} tone="dark" />
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 lg:border-l lg:border-carbon/10 lg:pl-10">
             <div>
               <span className="text-[10px] uppercase tracking-label text-oxide font-bold">
                 {t("selectedWork.tag")}

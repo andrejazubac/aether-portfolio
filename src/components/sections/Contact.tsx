@@ -30,7 +30,7 @@ export function Contact() {
       <div className="relative mx-auto grid max-w-[1560px] gap-12 lg:grid-cols-[0.25fr_1.75fr]">
         <SectionLabel index="06" label={t("contact.tag")} tone="dark" />
         
-        <div className="grid gap-6 lg:grid-cols-[1fr_0.65fr] lg:items-stretch">
+        <div className="grid gap-6 lg:grid-cols-[1fr_0.65fr] lg:items-stretch lg:border-l lg:border-carbon/10 lg:pl-10">
           {/* Main Inquiry Card */}
           <div className="relative overflow-hidden border border-carbon/10 bg-chalk/75 p-6 md:p-10 flex flex-col justify-between shadow-sm">
             <div className="absolute right-[-4rem] top-[-4rem] h-48 w-48 rounded-full bg-mist/50 blur-2xl" />

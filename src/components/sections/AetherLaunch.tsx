@@ -29,7 +29,7 @@ export function AetherLaunch() {
             <SectionLabel index="05" label={t("workArchive.currentLabel")} tone="dark" />
           </div>
 
-          <div>
+          <div className="lg:border-l lg:border-carbon/10 lg:pl-10">
             <Reveal>
               <span className="text-[10px] uppercase tracking-label text-oxide font-bold">
                 {content.sections.launchHeader.tag}

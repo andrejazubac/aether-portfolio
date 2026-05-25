@@ -16,7 +16,7 @@ export function Services() {
         {/* Section Header */}
         <div className="grid gap-12 lg:grid-cols-[0.25fr_1.75fr]">
           <SectionLabel index="04" label={t("nav.services")} tone="dark" />
-          <Reveal>
+          <Reveal className="lg:border-l lg:border-carbon/10 lg:pl-10">
             <span className="text-[10px] uppercase tracking-label text-oxide font-bold">
               {t("services.tag")}
             </span>

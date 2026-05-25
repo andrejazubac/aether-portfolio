@@ -23,7 +23,7 @@ export function Profile() {
         <div className="grid gap-12 lg:grid-cols-[0.25fr_1.75fr]">
           <SectionLabel index="02" label={t("profile.title")} tone="dark" />
           
-          <div className="grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:gap-16">
+          <div className="grid gap-12 lg:grid-cols-[1fr_0.9fr] lg:gap-16 lg:border-l lg:border-carbon/10 lg:pl-10">
             {/* Left Column: Thesis & Biography */}
             <div className="flex flex-col justify-between gap-10">
               <Reveal>
