@@ -79,7 +79,7 @@ export function WorkArchive() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-10% 0px" }}
                     transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                    className="group grid min-w-0 overflow-hidden bg-moss text-chalk shadow-soft xl:grid-cols-[0.92fr_1.08fr]"
+                    className="group grid min-w-0 overflow-hidden bg-moss text-chalk shadow-soft rounded-2xl border border-carbon/10 xl:grid-cols-[0.92fr_1.08fr]"
                   >
                     <a
                       href={project.url}
@@ -175,7 +175,7 @@ export function WorkArchive() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-10% 0px" }}
                   transition={{ duration: 0.9, delay: index % 2 === 0 ? 0 : 0.08, ease: [0.16, 1, 0.3, 1] }}
-                  className="group grid overflow-hidden border border-carbon/12 bg-chalk/70 shadow-soft md:grid-cols-[0.92fr_1fr]"
+                  className="group grid overflow-hidden border border-carbon/12 bg-chalk/70 shadow-soft rounded-2xl md:grid-cols-[0.92fr_1fr] hover:border-carbon/25 transition-all duration-300"
                 >
                   <motion.a
                     href={item.awwwardsUrl}

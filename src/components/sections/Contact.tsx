@@ -14,6 +14,7 @@ export function Contact() {
 
   // Auto rotate testimonials every 6 seconds
   useEffect(() => {
+    if (!testimonials || testimonials.length === 0) return;
     const interval = setInterval(() => {
       setActiveIdx((prev) => (prev + 1) % testimonials.length);
     }, 6000);
@@ -70,7 +71,7 @@ export function Contact() {
           {/* Sidebar Info Column */}
           <div className="grid gap-6">
             {/* Testimonials Rotating Card */}
-            <div className="relative overflow-hidden border border-carbon/10 bg-chalk/75 p-6 text-carbon shadow-sm flex flex-col justify-between min-h-[200px] transition-all hover:border-oxide/30">
+            <div className="relative overflow-hidden border border-carbon/10 bg-chalk/75 p-6 text-carbon shadow-sm rounded-2xl flex flex-col justify-between min-h-[200px] transition-all hover:border-oxide/30 hover:shadow-soft">
               <div className="absolute inset-0 grid-lines opacity-15" />
               <div className="relative flex flex-col justify-between h-full gap-6">
                 <div>
@@ -78,13 +79,13 @@ export function Contact() {
                     {t("contact.feedback")}
                   </span>
                   <p className="mt-3 font-display text-base leading-relaxed text-carbon/88 italic">
-                    &ldquo;{testimonials[activeIdx].quote}&rdquo;
+                    &ldquo;{testimonials[activeIdx]?.quote || ""}&rdquo;
                   </p>
                 </div>
                 <div className="flex items-center justify-between border-t border-carbon/8 pt-3 text-[11px]">
                   <div>
-                    <p className="font-semibold text-carbon">{testimonials[activeIdx].name}</p>
-                    <p className="text-carbon/45">{testimonials[activeIdx].role}</p>
+                    <p className="font-semibold text-carbon">{testimonials[activeIdx]?.name || ""}</p>
+                    <p className="text-carbon/45">{testimonials[activeIdx]?.role || ""}</p>
                   </div>
                   <div className="flex gap-1.5">
                     {testimonials.map((_, idx) => (
@@ -103,7 +104,7 @@ export function Contact() {
             </div>
 
             {/* Studio Coordinates block */}
-            <div className="relative overflow-hidden border border-carbon/10 bg-chalk/75 p-6 text-carbon shadow-sm transition-all hover:border-oxide/30">
+            <div className="relative overflow-hidden border border-carbon/10 bg-chalk/75 p-6 text-carbon shadow-sm rounded-2xl transition-all hover:border-oxide/30 hover:shadow-soft">
               <div className="absolute inset-0 grid-lines opacity-15" />
               <div className="relative">
                 <MapPin size={18} strokeWidth={1.7} className="text-oxide" />
