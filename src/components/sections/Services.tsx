@@ -31,16 +31,8 @@ export function Services() {
       
       <div className="relative mx-auto max-w-[1560px]">
         {/* Section Header */}
-        <div className="grid gap-12 lg:grid-cols-[0.25fr_1.75fr] mb-12">
+        <div className="mb-12">
           <SectionLabel index="04" label={t("nav.services")} tone="dark" />
-          <Reveal className="lg:border-l lg:border-carbon/10 lg:pl-10">
-            <span className="text-[10px] uppercase tracking-label text-oxide font-bold">
-              {t("services.tag")}
-            </span>
-            <h2 className="mt-2 max-w-4xl font-display text-[clamp(2.4rem,5.6vw,4.8rem)] font-medium leading-[0.92] text-balance">
-              {t("services.title")}
-            </h2>
-          </Reveal>
         </div>
 
         {/* Services Cards Grid */}

@@ -44,6 +44,12 @@ export function Approach() {
     [0.66, 1.0, 1.0, 0.8]
   );
 
+  const cardY = useTransform(
+    scrollYProgress,
+    [0.12, 0.36],
+    ["12%", "0%"]
+  );
+
   const borderRadius = useTransform(
     scrollYProgress,
     [0.12, 0.36, 0.68, 0.92],
@@ -100,7 +106,7 @@ export function Approach() {
 
         {/* Center Zooming Canvas Container */}
         <motion.div
-          style={{ scale, borderRadius }}
+          style={{ scale, borderRadius, y: cardY }}
           className="absolute inset-0 mx-auto flex items-center justify-center overflow-hidden bg-carbon shadow-2xl z-0"
         >
           {/* Crossfading Slide Images */}
