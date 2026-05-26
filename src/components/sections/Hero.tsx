@@ -103,111 +103,137 @@ export function Hero() {
                 xmlns="http://www.w3.org/2000/svg"
                 className="text-carbon"
               >
-                {/* Background coordinate grid line accents */}
-                <line x1="140" y1="5" x2="140" y2="165" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 3" className="opacity-15" />
-                <line x1="15" y1="65" x2="265" y2="65" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 3" className="opacity-15" />
+                <defs>
+                  {/* Linear gradient for glowing analytics chart fill */}
+                  <linearGradient id="chartEnergyGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#a65f3e" stopOpacity="0.25" />
+                    <stop offset="100%" stopColor="#a65f3e" stopOpacity="0.0" />
+                  </linearGradient>
+                </defs>
 
-                {/* Concentric Energy Waves expanding outwards from nucleus */}
-                <circle cx="140" cy="65" r="3" className="fill-carbon" />
+                {/* Background coordinate grid line accents */}
+                <line x1="140" y1="5" x2="140" y2="165" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 3" className="opacity-10" />
+                <line x1="15" y1="65" x2="265" y2="65" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 3" className="opacity-10" />
+
+                {/* Monospace System telemetry status overlay readouts */}
+                <text x="20" y="20" className="fill-carbon/35 font-mono text-[7px]" letterSpacing="0.5">ANLYS.SYS: ACTIVE</text>
+                <text x="210" y="20" className="fill-oxide/60 font-mono text-[7px] font-semibold" letterSpacing="0.5">ENERGY.FLOW: 98.4%</text>
+                <text x="20" y="112" className="fill-carbon/35 font-mono text-[7px]" letterSpacing="0.5">NET.NODE.MESH</text>
+                <text x="220" y="112" className="fill-carbon/35 font-mono text-[7px]" letterSpacing="0.5">F.RATE: 840Hz</text>
+
+                {/* 1. Spline Analytics Chart & Glowing area fill */}
+                {/* Glowing area under the spline curve */}
+                <path
+                  d="M 20 95 L 20 70 Q 40 40, 60 50 T 100 80 T 140 35 T 180 90 T 220 45 T 260 75 L 260 95 Z"
+                  fill="url(#chartEnergyGrad)"
+                />
+                {/* The main spline line chart */}
+                <path
+                  d="M 20 70 Q 40 40, 60 50 T 100 80 T 140 35 T 180 90 T 220 45 T 260 75"
+                  stroke="currentColor"
+                  strokeWidth="1.25"
+                  className="opacity-70 text-carbon"
+                />
+
+                {/* Pulsing indicator node marker on spline peaks */}
                 <motion.circle
                   cx="140"
-                  cy="65"
-                  animate={{ r: [6, 20, 6], opacity: [0.6, 0.1, 0.6] }}
-                  transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+                  cy="35"
+                  r="2.5"
+                  className="fill-oxide"
+                  animate={{ scale: [1, 1.8, 1], opacity: [0.8, 0.4, 0.8] }}
+                  transition={{ duration: 2.2, repeat: Infinity }}
+                />
+                <motion.circle
+                  cx="220"
+                  cy="45"
+                  r="2.5"
+                  className="fill-carbon"
+                  animate={{ scale: [1, 1.6, 1], opacity: [0.7, 0.3, 0.7] }}
+                  transition={{ duration: 2.8, repeat: Infinity, delay: 0.5 }}
+                />
+
+                {/* 2. Sweeping diagnostic scan line */}
+                <motion.line
+                  x1="0"
+                  y1="10"
+                  x2="0"
+                  y2="95"
                   stroke="currentColor"
                   strokeWidth="0.75"
-                  className="text-oxide/40"
+                  className="text-oxide opacity-50"
+                  animate={{ x: [20, 260, 20] }}
+                  transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
                 />
+
+                {/* 3. Database node network connection lines (bottom part) */}
+                {/* Connection lines */}
+                <line x1="30" y1="135" x2="85" y2="150" stroke="currentColor" strokeWidth="0.75" strokeDasharray="2 2" className="opacity-20 text-carbon" />
+                <line x1="85" y1="150" x2="140" y2="130" stroke="currentColor" strokeWidth="0.75" strokeDasharray="2 2" className="opacity-20 text-carbon" />
+                <line x1="140" y1="130" x2="195" y2="145" stroke="currentColor" strokeWidth="0.75" strokeDasharray="2 2" className="opacity-20 text-carbon" />
+                <line x1="195" y1="145" x2="250" y2="135" stroke="currentColor" strokeWidth="0.75" strokeDasharray="2 2" className="opacity-20 text-carbon" />
+                
+                {/* Vertical connections linking mesh network to analytical spline peaks */}
+                <line x1="85" y1="150" x2="100" y2="80" stroke="currentColor" strokeWidth="0.5" strokeDasharray="1 3" className="opacity-15 text-carbon" />
+                <line x1="195" y1="145" x2="180" y2="90" stroke="currentColor" strokeWidth="0.5" strokeDasharray="1 3" className="opacity-15 text-carbon" />
+
+                {/* System Nodes */}
+                <circle cx="30" cy="135" r="3" className="fill-carbon opacity-60" />
+                <circle cx="85" cy="150" r="3" className="fill-oxide opacity-80" />
+                <circle cx="140" cy="130" r="3" className="fill-carbon opacity-60" />
+                <circle cx="195" cy="145" r="3" className="fill-oxide opacity-80" />
+                <circle cx="250" cy="135" r="3" className="fill-carbon opacity-60" />
+
+                {/* 4. Animated Data/Energy Packets moving between system nodes */}
+                {/* Packet A to B */}
                 <motion.circle
-                  cx="140"
-                  cy="65"
-                  animate={{ r: [12, 34, 12], opacity: [0.4, 0, 0.4] }}
-                  transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  stroke="currentColor"
-                  strokeWidth="0.5"
-                  className="text-carbon/20"
+                  r="2"
+                  className="fill-oxide"
+                  animate={{
+                    cx: [30, 85],
+                    cy: [135, 150]
+                  }}
+                  transition={{ duration: 2.2, repeat: Infinity, ease: "linear" }}
                 />
+                {/* Packet B to C */}
                 <motion.circle
-                  cx="140"
-                  cy="65"
-                  animate={{ r: [20, 52, 20], opacity: [0.3, 0, 0.3] }}
-                  transition={{ duration: 8.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                  stroke="currentColor"
-                  strokeWidth="0.5"
-                  className="text-carbon/10"
+                  r="2"
+                  className="fill-carbon"
+                  animate={{
+                    cx: [85, 140],
+                    cy: [150, 130]
+                  }}
+                  transition={{ duration: 1.8, repeat: Infinity, ease: "linear", delay: 0.3 }}
+                />
+                {/* Packet C to D */}
+                <motion.circle
+                  r="2"
+                  className="fill-oxide"
+                  animate={{
+                    cx: [140, 195],
+                    cy: [130, 145]
+                  }}
+                  transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
+                />
+                {/* Packet D to E */}
+                <motion.circle
+                  r="2"
+                  className="fill-carbon"
+                  animate={{
+                    cx: [195, 250],
+                    cy: [145, 135]
+                  }}
+                  transition={{ duration: 2.0, repeat: Infinity, ease: "linear", delay: 0.6 }}
                 />
 
-                {/* 3D Atomic Elliptical Orbits with rotating particle dots */}
-                {/* Orbit 1: Tilted left (-28 degrees) */}
-                <g transform="translate(140, 65) rotate(-28)">
-                  <g transform="scale(1, 0.36)">
-                    <circle cx="0" cy="0" r="54" stroke="currentColor" strokeWidth="0.75" strokeDasharray="4 3" className="opacity-25 text-carbon" />
-                    <motion.g
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 5.5, repeat: Infinity, ease: "linear" }}
-                    >
-                      <circle cx="54" cy="0" r="2.5" className="fill-oxide" />
-                    </motion.g>
-                  </g>
-                </g>
-
-                {/* Orbit 2: Tilted right (28 degrees) */}
-                <g transform="translate(140, 65) rotate(28)">
-                  <g transform="scale(1, 0.36)">
-                    <circle cx="0" cy="0" r="54" stroke="currentColor" strokeWidth="0.75" strokeDasharray="4 3" className="opacity-25 text-carbon" />
-                    <motion.g
-                      animate={{ rotate: -360 }}
-                      transition={{ duration: 7.5, repeat: Infinity, ease: "linear" }}
-                    >
-                      <circle cx="54" cy="0" r="2" className="fill-carbon opacity-60" />
-                    </motion.g>
-                  </g>
-                </g>
-
-                {/* Orbit 3: Horizontal (0 degrees, wider) */}
-                <g transform="translate(140, 65)">
-                  <g transform="scale(1, 0.28)">
-                    <circle cx="0" cy="0" r="72" stroke="currentColor" strokeWidth="0.5" strokeDasharray="5 3" className="opacity-20 text-carbon" />
-                    <motion.g
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 9.5, repeat: Infinity, ease: "linear" }}
-                    >
-                      <circle cx="72" cy="0" r="2" className="fill-oxide" />
-                    </motion.g>
-                  </g>
-                </g>
-
-                {/* Sliding Frequency Waves at the bottom boundary */}
-                <g>
-                  {/* Solid Wave (Carbon) */}
-                  <motion.path
-                    d="M -80 135 Q -60 123, -40 135 T 0 135 T 40 135 T 80 135 T 120 135 T 160 135 T 200 135 T 240 135 T 280 135 T 320 135 T 360 135"
-                    stroke="currentColor"
-                    strokeWidth="0.75"
-                    className="opacity-25 text-carbon"
-                    animate={{ x: [-80, 0] }}
-                    transition={{ duration: 3.5, repeat: Infinity, ease: "linear" }}
-                  />
-                  {/* Dashed Wave (Oxide, out-of-phase sliding opposite direction) */}
-                  <motion.path
-                    d="M -80 135 Q -60 147, -40 135 T 0 135 T 40 135 T 80 135 T 120 135 T 160 135 T 200 135 T 240 135 T 280 135 T 320 135 T 360 135"
-                    stroke="currentColor"
-                    strokeWidth="0.5"
-                    strokeDasharray="3 3"
-                    className="opacity-18 text-oxide"
-                    animate={{ x: [0, -80] }}
-                    transition={{ duration: 4.5, repeat: Infinity, ease: "linear" }}
-                  />
-                </g>
-
-                {/* Bottom measurement scale ticks representing wave scan */}
+                {/* Calibration tick marks along the bottom border representing scan limits */}
                 {[30, 52, 74, 96, 118, 140, 162, 184, 206, 228, 250].map((x, i) => (
                   <line
                     key={i}
                     x1={x}
-                    y1="152"
+                    y1="160"
                     x2={x}
-                    y2={i % 5 === 0 ? "160" : "156"}
+                    y2={i % 5 === 0 ? "166" : "163"}
                     stroke="currentColor"
                     strokeWidth="0.75"
                     className="opacity-15 text-carbon"
