@@ -10,9 +10,9 @@ import { currentProjects, workReferences } from "@/data/workReferences";
 import { renderFormattedText } from "@/lib/utils";
 
 const categoryStyles = {
-  Motion: "border-mist/45 bg-mist/18 text-mist",
-  Refreshing: "border-oxide/40 bg-oxide/12 text-oxide",
-  Professional: "border-moss/35 bg-moss/10 text-moss"
+  Motion: "border-oxide/20 bg-oxide/5 text-oxide",
+  Refreshing: "border-moss/20 bg-moss/5 text-moss",
+  Professional: "border-carbon/15 bg-carbon/5 text-carbon/75"
 };
 
 export function WorkArchive() {
@@ -24,27 +24,27 @@ export function WorkArchive() {
     offset: ["start start", "end start"]
   });
   
-  const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
-  const imageY = useTransform(scrollYProgress, [0, 1], ["-6%", "8%"]);
+  const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
 
   return (
     <main className="bg-porcelain text-carbon">
-      <section ref={heroRef} className="relative min-h-[86vh] overflow-hidden bg-carbon px-5 pt-28 text-chalk md:px-10">
-        <div className="absolute inset-0 dark-grid-lines opacity-45" />
+      {/* Hero Section */}
+      <section ref={heroRef} className="relative min-h-[60vh] flex flex-col justify-center overflow-hidden bg-porcelain px-5 pt-32 pb-16 text-carbon md:px-10">
+        <div className="absolute inset-0 grid-lines opacity-25" />
         <div className="absolute right-[-10rem] top-[-10rem] h-[40rem] w-[40rem] rounded-full bg-mist/20 blur-3xl animate-drift-slow" />
-        <div className="absolute bottom-[-12rem] left-[-8rem] h-[32rem] w-[32rem] rounded-full bg-oxide/12 blur-3xl animate-drift-medium" />
+        <div className="absolute bottom-[-12rem] left-[-8rem] h-[32rem] w-[32rem] rounded-full bg-oxide/8 blur-3xl animate-drift-medium" />
 
-        <motion.div style={{ y: heroY }} className="relative mx-auto grid max-w-[1560px] gap-12 lg:grid-cols-[0.35fr_1fr]">
-          <SectionLabel index="W" label={t("workArchive.tag")} tone="light" />
+        <motion.div style={{ y: heroY }} className="relative mx-auto grid max-w-[1560px] gap-8 lg:grid-cols-[0.25fr_1.75fr] lg:items-start lg:border-b lg:border-carbon/10 lg:pb-16">
+          <SectionLabel index="W" label={t("workArchive.tag")} tone="dark" />
           <div>
-            <p className="max-w-6xl font-display text-[clamp(4rem,11vw,12.5rem)] font-medium leading-[0.8] text-balance">
+            <h1 className="font-display text-[clamp(2.8rem,6.4vw,6.8rem)] font-medium leading-[0.9] text-balance text-carbon">
               {t("workArchive.title")}
-            </p>
-            <div className="mt-10 grid gap-8 md:grid-cols-[0.7fr_0.3fr] md:items-end">
-              <p className="max-w-2xl text-xl leading-8 text-chalk/68">
+            </h1>
+            <div className="mt-8 grid gap-8 md:grid-cols-[0.7fr_0.3fr] md:items-end">
+              <p className="max-w-2xl text-lg leading-relaxed text-carbon/62">
                 {renderFormattedText(t("workArchive.desc"))}
               </p>
-              <p className="text-sm uppercase tracking-label text-chalk/42 md:text-right">
+              <p className="text-xs uppercase tracking-label text-carbon/42 md:text-right font-bold">
                 {t("workArchive.subTag")}
               </p>
             </div>
@@ -52,15 +52,17 @@ export function WorkArchive() {
         </motion.div>
       </section>
 
-      <section className="relative overflow-hidden px-5 py-20 md:px-10 md:py-28">
-        <div className="absolute inset-0 grid-lines opacity-45" />
+      {/* Current Projects Section */}
+      <section className="relative overflow-hidden px-5 py-16 md:px-10 md:py-24">
+        <div className="absolute inset-0 grid-lines opacity-25" />
         <div className="relative mx-auto max-w-[1560px]">
-          <div className="mb-20 grid gap-10 lg:grid-cols-[0.34fr_1fr]">
-            <SectionLabel index="01" label={t("workArchive.currentLabel")} />
+          <div className="grid gap-10 lg:grid-cols-[0.25fr_1.75fr]">
+            <div>
+              <SectionLabel index="01" label={t("workArchive.currentLabel")} tone="dark" />
+            </div>
             
-            <div className="space-y-8 lg:border-l lg:border-carbon/10 lg:pl-10">
+            <div className="grid gap-8 md:grid-cols-2 lg:gap-10 lg:border-l lg:border-carbon/10 lg:pl-10">
               {currentProjects.map((project, idx) => {
-                // Determine localized details if needed, or fallback to default
                 const isSRB = lang === "sr";
                 const localizedDesc = isSRB && idx === 1
                   ? "Premium veb sajt za frizerski i kozmetički salon Beauty Boom Plus, kreiran oko elegancije, prefinjene atmosfere i direktnih rezervacija."
@@ -75,71 +77,72 @@ export function WorkArchive() {
                 return (
                   <motion.article
                     key={project.title}
-                    initial={{ opacity: 0, y: 36 }}
+                    initial={{ opacity: 0, y: 32 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-10% 0px" }}
-                    transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                    className="group grid min-w-0 overflow-hidden bg-moss text-chalk shadow-soft rounded-2xl border border-carbon/10 xl:grid-cols-[0.92fr_1.08fr]"
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    className="relative flex flex-col justify-between overflow-hidden bg-chalk/90 border border-carbon/10 hover:border-carbon/25 transition-all duration-500 rounded-2xl shadow-sm hover:shadow-soft group"
                   >
                     <a
                       href={project.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="relative block min-h-[21rem] overflow-hidden md:min-h-[28rem] xl:min-h-[34rem]"
+                      className="relative block aspect-[16/10] w-full overflow-hidden border-b border-carbon/10 bg-carbon"
                     >
                       <Image
                         src={project.image}
-                        alt={`${project.title} project visual placeholder`}
+                        alt={`${project.title} project visual`}
                         fill
-                        sizes="(min-width: 1280px) 36vw, 100vw"
-                        className="object-cover opacity-82 saturate-[0.78] transition duration-700 group-hover:scale-105 group-hover:saturate-100"
+                        sizes="(min-width: 768px) 40vw, 95vw"
+                        className="object-cover opacity-90 transition duration-700 group-hover:scale-[1.03] group-hover:opacity-100 group-hover:saturate-100 saturate-[0.85]"
                       />
-                      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(38,56,45,0.04),rgba(38,56,45,0.74))]" />
-                      <span className="absolute bottom-6 left-6 rounded-full border border-chalk/24 bg-chalk/10 px-4 py-2 text-xs uppercase tracking-label text-chalk/72">
+                      <span className="absolute bottom-4 left-4 rounded-full border border-chalk/20 bg-black/40 backdrop-blur-sm px-3.5 py-1.5 text-[10px] uppercase tracking-label text-chalk">
                         {t("workArchive.liveLabel")}
                       </span>
                     </a>
                     
-                    <div className="flex min-w-0 flex-col justify-between p-7 md:p-10">
+                    <div className="flex flex-col justify-between flex-grow p-6 md:p-8 gap-6">
                       <div>
-                        <div className="mb-7 flex flex-wrap gap-3">
-                          <span className="rounded-full border border-mist/35 bg-mist/12 px-3 py-1.5 text-xs uppercase tracking-label text-mist">
+                        <div className="mb-4 flex flex-wrap gap-2.5">
+                          <span className="rounded-full border border-oxide/20 bg-oxide/5 px-2.5 py-1 text-[10px] uppercase tracking-label text-oxide font-semibold">
                             {project.category}
                           </span>
-                          <span className="rounded-full border border-chalk/18 px-3 py-1.5 text-xs uppercase tracking-label text-chalk/52">
+                          <span className="rounded-full border border-carbon/10 bg-porcelain px-2.5 py-1 text-[10px] uppercase tracking-label text-carbon/50">
                             {project.location}
                           </span>
                         </div>
-                        <h2 className="max-w-3xl overflow-hidden text-balance font-display text-[clamp(3rem,5.2vw,5.8rem)] font-medium leading-[0.9]">
+                        <h2 className="font-display text-2xl md:text-3xl font-semibold leading-tight text-carbon group-hover:text-oxide transition-colors">
                           {project.title}
                         </h2>
-                        <p className="mt-7 max-w-2xl text-lg leading-8 text-chalk/68">{localizedDesc}</p>
+                        <p className="mt-4 text-sm leading-relaxed text-carbon/62">{localizedDesc}</p>
                       </div>
 
-                      <div className="mt-10 grid gap-6 border-t border-chalk/14 pt-7 md:grid-cols-2">
-                        <div className="min-w-0">
-                          <p className="text-xs uppercase tracking-label text-chalk/38">{t("workArchive.roleLabel")}</p>
-                          <p className="mt-4 text-sm leading-7 text-chalk/62 md:text-base">{localizedRole}</p>
+                      <div className="space-y-4 border-t border-carbon/8 pt-4">
+                        <div>
+                          <p className="text-[10px] uppercase tracking-label text-carbon/42 font-bold">{t("workArchive.roleLabel")}</p>
+                          <p className="mt-1 text-xs leading-relaxed text-carbon/75">{localizedRole}</p>
                         </div>
-                        <div className="min-w-0">
-                          <p className="text-xs uppercase tracking-label text-chalk/38">{t("workArchive.whyLabel")}</p>
-                          <p className="mt-4 text-sm leading-7 text-chalk/62 md:text-base">{localizedAlignment}</p>
+                        <div>
+                          <p className="text-[10px] uppercase tracking-label text-carbon/42 font-bold">{t("workArchive.whyLabel")}</p>
+                          <p className="mt-1 text-xs leading-relaxed text-carbon/75">{localizedAlignment}</p>
                         </div>
                       </div>
 
-                      <div className="mt-8 flex flex-wrap items-center gap-3">
-                        {project.tags.map((tag) => (
-                          <span key={tag} className="rounded-full border border-chalk/14 px-3 py-1 text-xs text-chalk/48">
-                            {tag}
-                          </span>
-                        ))}
+                      <div className="mt-4 flex items-center justify-between border-t border-carbon/8 pt-4">
+                        <div className="flex flex-wrap gap-1.5">
+                          {project.tags.slice(0, 3).map((tag) => (
+                            <span key={tag} className="rounded border border-carbon/8 px-2 py-0.5 text-[10px] text-carbon/45 bg-porcelain">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
                         <a
                           href={project.url}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-2 text-sm font-medium text-mist underline-offset-8 hover:underline md:ml-auto"
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-oxide underline underline-offset-4 hover:text-carbon transition-colors"
                         >
-                          {t("workArchive.visitLabel")} <ArrowUpRight size={15} strokeWidth={1.6} />
+                          {t("workArchive.visitLabel")} <ArrowUpRight size={13} strokeWidth={2} />
                         </a>
                       </div>
                     </div>
@@ -148,18 +151,24 @@ export function WorkArchive() {
               })}
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid gap-10 lg:grid-cols-[0.34fr_1fr]">
+      {/* References Section */}
+      <section className="relative overflow-hidden border-t border-carbon/10 px-5 py-16 md:px-10 md:py-24">
+        <div className="absolute inset-0 grid-lines opacity-25" />
+        <div className="relative mx-auto max-w-[1560px]">
+          <div className="grid gap-10 lg:grid-cols-[0.25fr_1.75fr]">
             <aside className="lg:sticky lg:top-28 lg:h-fit">
-              <SectionLabel index="10" label={t("workArchive.referencesLabel")} />
-              <p className="mt-8 max-w-sm text-lg leading-8 text-carbon/60">
+              <SectionLabel index="02" label={t("workArchive.referencesLabel")} tone="dark" />
+              <p className="mt-6 max-w-sm text-sm leading-relaxed text-carbon/60">
                 {t("workArchive.referencesDesc")}
               </p>
-              <div className="mt-10 flex flex-wrap gap-2">
+              <div className="mt-6 flex flex-wrap gap-2">
                 {["Motion", "Refreshing", "Professional"].map((category) => (
                   <span
                     key={category}
-                    className={`rounded-full border px-3 py-1.5 text-xs uppercase tracking-label ${categoryStyles[category as keyof typeof categoryStyles]}`}
+                    className={`rounded-full border px-2.5 py-1 text-[10px] uppercase tracking-label font-semibold ${categoryStyles[category as keyof typeof categoryStyles]}`}
                   >
                     {category}
                   </span>
@@ -167,76 +176,77 @@ export function WorkArchive() {
               </div>
             </aside>
 
-            <div className="space-y-8 lg:border-l lg:border-carbon/10 lg:pl-10">
+            <div className="grid gap-8 md:grid-cols-2 lg:gap-10 lg:border-l lg:border-carbon/10 lg:pl-10">
               {workReferences.map((item, index) => (
                 <motion.article
                   key={item.title}
-                  initial={{ opacity: 0, y: 40 }}
+                  initial={{ opacity: 0, y: 32 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-10% 0px" }}
-                  transition={{ duration: 0.9, delay: index % 2 === 0 ? 0 : 0.08, ease: [0.16, 1, 0.3, 1] }}
-                  className="group grid overflow-hidden border border-carbon/12 bg-chalk/70 shadow-soft rounded-2xl md:grid-cols-[0.92fr_1fr] hover:border-carbon/25 transition-all duration-300"
+                  transition={{ duration: 0.8, delay: index % 2 === 0 ? 0 : 0.08, ease: [0.16, 1, 0.3, 1] }}
+                  className="relative flex flex-col justify-between overflow-hidden border border-carbon/12 bg-chalk/70 hover:border-carbon/25 transition-all duration-300 rounded-2xl shadow-sm hover:shadow-soft group"
                 >
-                  <motion.a
+                  <a
                     href={item.awwwardsUrl}
                     target="_blank"
                     rel="noreferrer"
-                    style={{ y: imageY }}
-                    className="relative block min-h-[22rem] overflow-hidden bg-carbon md:min-h-[34rem]"
+                    className="relative block aspect-[16/10] w-full overflow-hidden border-b border-carbon/10 bg-carbon"
                   >
                     <Image
                       src={item.image}
-                      alt={`${item.title} visual direction placeholder`}
+                      alt={`${item.title} visual direction`}
                       fill
-                      sizes="(min-width: 768px) 46vw, 100vw"
-                      className="object-cover opacity-88 saturate-[0.9] transition duration-700 group-hover:scale-105 group-hover:saturate-110"
+                      sizes="(min-width: 768px) 40vw, 95vw"
+                      className="object-cover opacity-90 transition duration-700 group-hover:scale-[1.03] group-hover:opacity-100 saturate-[0.85] group-hover:saturate-100"
                     />
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,17,15,0.02),rgba(17,17,15,0.58))]" />
-                    <span className="absolute bottom-6 left-6 font-display text-7xl text-chalk/74">{item.index}</span>
-                  </motion.a>
+                    <span className="absolute bottom-4 left-4 font-display text-4xl text-chalk/70 drop-shadow-sm font-semibold">{item.index}</span>
+                  </a>
 
-                  <div className="flex flex-col justify-between p-7 md:p-10">
+                  <div className="p-6 md:p-8 flex flex-col justify-between flex-grow gap-6">
                     <div>
-                      <div className="mb-7 flex flex-wrap items-center gap-3">
-                        <span className={`rounded-full border px-3 py-1.5 text-xs uppercase tracking-label ${categoryStyles[item.category]}`}>
+                      <div className="mb-4 flex items-center justify-between">
+                        <span className={`rounded-full border px-2.5 py-1 text-[10px] uppercase tracking-label font-semibold ${categoryStyles[item.category]}`}>
                           {item.category}
                         </span>
-                        <span className="text-xs uppercase tracking-label text-carbon/38">{item.tone}</span>
+                        <span className="text-[10px] uppercase tracking-label text-carbon/42 font-bold">{item.tone}</span>
                       </div>
-                      <h2 className="font-display text-[clamp(3rem,6vw,6.6rem)] font-medium leading-[0.86] text-moss">
+                      <h3 className="font-display text-2xl font-semibold leading-tight text-moss group-hover:text-oxide transition-colors">
                         {item.title}
-                      </h2>
-                      <p className="mt-8 max-w-2xl text-lg leading-8 text-carbon/64">{item.description}</p>
+                      </h3>
+                      <p className="mt-4 text-sm leading-relaxed text-carbon/64">{item.description}</p>
                     </div>
 
-                    <div className="mt-12 border-t border-carbon/12 pt-7">
-                      <p className="text-xs uppercase tracking-label text-carbon/38">{t("workArchive.whyLabel")}</p>
-                      <p className="mt-4 max-w-2xl leading-7 text-carbon/62">{item.alignment}</p>
-                      <div className="mt-7 flex flex-wrap gap-2">
-                        {item.tags.map((tag) => (
-                          <span key={tag} className="rounded-full border border-carbon/12 px-3 py-1 text-xs text-carbon/50">
+                    <div className="space-y-4 border-t border-carbon/8 pt-4">
+                      <div>
+                        <p className="text-[10px] uppercase tracking-label text-carbon/38 font-bold">{t("workArchive.whyLabel")}</p>
+                        <p className="mt-1 text-xs leading-relaxed text-carbon/62">{item.alignment}</p>
+                      </div>
+                      <div className="flex flex-wrap gap-1.5 mt-2">
+                        {item.tags.slice(0, 3).map((tag) => (
+                          <span key={tag} className="rounded border border-carbon/12 px-2 py-0.5 text-[10px] text-carbon/48 bg-porcelain">
                             {tag}
                           </span>
                         ))}
                       </div>
-                      <div className="mt-8 flex flex-wrap gap-4">
-                        <a
-                          href={item.url}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex items-center gap-2 text-sm font-medium text-moss underline-offset-8 hover:underline"
-                        >
-                          {t("workArchive.visitLabel")} <ArrowUpRight size={15} strokeWidth={1.6} />
-                        </a>
-                        <a
-                          href={item.awwwardsUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex items-center gap-2 text-sm text-carbon/48 underline-offset-8 hover:text-carbon hover:underline"
-                        >
-                          {t("workArchive.awwwardsLabel")} <ArrowUpRight size={15} strokeWidth={1.6} />
-                        </a>
-                      </div>
+                    </div>
+
+                    <div className="mt-4 flex items-center justify-between border-t border-carbon/8 pt-4">
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-moss underline underline-offset-4 hover:text-oxide transition-colors"
+                      >
+                        {t("workArchive.visitLabel")} <ArrowUpRight size={13} strokeWidth={2} />
+                      </a>
+                      <a
+                        href={item.awwwardsUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs text-carbon/48 underline underline-offset-4 hover:text-carbon transition-colors"
+                      >
+                        {t("workArchive.awwwardsLabel")} <ArrowUpRight size={13} strokeWidth={2} />
+                      </a>
                     </div>
                   </div>
                 </motion.article>
