@@ -54,7 +54,7 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1560px] flex-col justify-between gap-12">
         {/* Main Branding & Editorial copy */}
-        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:gap-16">
+        <div className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start lg:gap-16">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
@@ -96,144 +96,141 @@ export function Hero() {
             {/* Middle: Abstract SVG Animation */}
             <div className="relative z-10 flex items-center justify-center h-44 my-2 select-none">
               <svg
-                width="280"
-                height="170"
-                viewBox="0 0 280 170"
+                width="100%"
+                height="100%"
+                viewBox="0 0 400 180"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 className="text-carbon"
               >
                 <defs>
-                  {/* Linear gradient for glowing analytics chart fill */}
-                  <linearGradient id="chartEnergyGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#a65f3e" stopOpacity="0.25" />
+                  {/* Gradients for stacked area layers */}
+                  <linearGradient id="layer1Grad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#181816" stopOpacity="0.18" />
+                    <stop offset="100%" stopColor="#181816" stopOpacity="0.0" />
+                  </linearGradient>
+                  <linearGradient id="layer2Grad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#26382d" stopOpacity="0.25" />
+                    <stop offset="100%" stopColor="#26382d" stopOpacity="0.0" />
+                  </linearGradient>
+                  <linearGradient id="layer3Grad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#a65f3e" stopOpacity="0.32" />
                     <stop offset="100%" stopColor="#a65f3e" stopOpacity="0.0" />
                   </linearGradient>
                 </defs>
 
                 {/* Background coordinate grid line accents */}
-                <line x1="140" y1="5" x2="140" y2="165" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 3" className="opacity-10" />
-                <line x1="15" y1="65" x2="265" y2="65" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 3" className="opacity-10" />
+                <line x1="100" y1="10" x2="100" y2="170" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 3" className="opacity-10" />
+                <line x1="200" y1="10" x2="200" y2="170" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 3" className="opacity-10" />
+                <line x1="300" y1="10" x2="300" y2="170" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 3" className="opacity-10" />
+                <line x1="10" y1="90" x2="390" y2="90" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 3" className="opacity-10" />
 
-                {/* Monospace System telemetry status overlay readouts */}
-                <text x="20" y="20" className="fill-carbon/35 font-mono text-[7px]" letterSpacing="0.5">ANLYS.SYS: ACTIVE</text>
-                <text x="210" y="20" className="fill-oxide/60 font-mono text-[7px] font-semibold" letterSpacing="0.5">ENERGY.FLOW: 98.4%</text>
-                <text x="20" y="112" className="fill-carbon/35 font-mono text-[7px]" letterSpacing="0.5">NET.NODE.MESH</text>
-                <text x="220" y="112" className="fill-carbon/35 font-mono text-[7px]" letterSpacing="0.5">F.RATE: 840Hz</text>
+                {/* Monospace telemetry labels */}
+                <text x="15" y="22" className="fill-carbon/35 font-mono text-[7px]" letterSpacing="0.5">STACK.ANLYS: ACTIVE</text>
+                <text x="315" y="22" className="fill-oxide/60 font-mono text-[7px] font-semibold" letterSpacing="0.5">LOAD: NOMINAL</text>
+                
+                <text x="250" y="145" className="fill-carbon/25 font-mono text-[6px] font-bold" letterSpacing="0.3">L1: BASE_DB</text>
+                <text x="250" y="115" className="fill-moss/45 font-mono text-[6px] font-bold" letterSpacing="0.3">L2: API_FLOW</text>
+                <text x="250" y="75" className="fill-oxide/65 font-mono text-[6px] font-bold" letterSpacing="0.3">L3: PEAK_IO</text>
 
-                {/* 1. Spline Analytics Chart & Glowing area fill */}
-                {/* Glowing area under the spline curve */}
-                <path
-                  d="M 20 95 L 20 70 Q 40 40, 60 50 T 100 80 T 140 35 T 180 90 T 220 45 T 260 75 L 260 95 Z"
-                  fill="url(#chartEnergyGrad)"
+                {/* 1. LAYER 1: Bottom Area (Carbon) */}
+                <motion.path
+                  d="M 0 140 Q 60 120, 120 135 T 240 115 T 360 130 T 400 120 L 400 180 L 0 180 Z"
+                  fill="url(#layer1Grad)"
+                  stroke="#181816"
+                  strokeWidth="0.75"
+                  className="opacity-30 text-carbon"
+                  animate={{
+                    d: [
+                      "M 0 140 Q 60 120, 120 135 T 240 115 T 360 130 T 400 120 L 400 180 L 0 180 Z",
+                      "M 0 140 Q 60 135, 120 115 T 240 130 T 360 110 T 400 135 L 400 180 L 0 180 Z",
+                      "M 0 140 Q 60 115, 120 140 T 240 120 T 360 125 T 400 115 L 400 180 L 0 180 Z",
+                      "M 0 140 Q 60 120, 120 135 T 240 115 T 360 130 T 400 120 L 400 180 L 0 180 Z"
+                    ]
+                  }}
+                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
                 />
-                {/* The main spline line chart */}
-                <path
-                  d="M 20 70 Q 40 40, 60 50 T 100 80 T 140 35 T 180 90 T 220 45 T 260 75"
-                  stroke="currentColor"
+
+                {/* 2. LAYER 2: Middle Area (Moss/Sage) */}
+                <motion.path
+                  d="M 0 140 Q 50 90, 110 105 T 220 85 T 330 100 T 400 90 L 400 180 L 0 180 Z"
+                  fill="url(#layer2Grad)"
+                  stroke="#26382d"
+                  strokeWidth="1"
+                  className="opacity-40 text-moss"
+                  animate={{
+                    d: [
+                      "M 0 140 Q 50 90, 110 105 T 220 85 T 330 100 T 400 90 L 400 180 L 0 180 Z",
+                      "M 0 140 Q 50 110, 110 85 T 220 100 T 330 80 T 400 105 L 400 180 L 0 180 Z",
+                      "M 0 140 Q 50 85, 110 100 T 220 90 T 330 95 T 400 80 L 400 180 L 0 180 Z",
+                      "M 0 140 Q 50 90, 110 105 T 220 85 T 330 100 T 400 90 L 400 180 L 0 180 Z"
+                    ]
+                  }}
+                  transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                />
+
+                {/* 3. LAYER 3: Top Area (Oxide/Terracotta) */}
+                <motion.path
+                  d="M 0 140 Q 55 55, 105 70 T 210 50 T 315 65 T 400 50 L 400 180 L 0 180 Z"
+                  fill="url(#layer3Grad)"
+                  stroke="#a65f3e"
                   strokeWidth="1.25"
-                  className="opacity-70 text-carbon"
+                  className="opacity-60 text-oxide"
+                  animate={{
+                    d: [
+                      "M 0 140 Q 55 55, 105 70 T 210 50 T 315 65 T 400 50 L 400 180 L 0 180 Z",
+                      "M 0 140 Q 55 75, 105 45 T 210 65 T 315 45 T 400 70 L 400 180 L 0 180 Z",
+                      "M 0 140 Q 55 45, 105 60 T 210 50 T 315 55 T 400 45 L 400 180 L 0 180 Z",
+                      "M 0 140 Q 55 55, 105 70 T 210 50 T 315 65 T 400 50 L 400 180 L 0 180 Z"
+                    ]
+                  }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
                 />
 
-                {/* Pulsing indicator node marker on spline peaks */}
+                {/* Floating Peak Nodes tracking peak shifts */}
                 <motion.circle
-                  cx="140"
-                  cy="35"
-                  r="2.5"
+                  cx="105"
+                  animate={{ cy: [70, 45, 60, 70] }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                  r="3.5"
                   className="fill-oxide"
-                  animate={{ scale: [1, 1.8, 1], opacity: [0.8, 0.4, 0.8] }}
-                  transition={{ duration: 2.2, repeat: Infinity }}
                 />
                 <motion.circle
-                  cx="220"
-                  cy="45"
-                  r="2.5"
+                  cx="210"
+                  animate={{ cy: [50, 65, 50, 50] }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                  r="3"
                   className="fill-carbon"
-                  animate={{ scale: [1, 1.6, 1], opacity: [0.7, 0.3, 0.7] }}
-                  transition={{ duration: 2.8, repeat: Infinity, delay: 0.5 }}
+                />
+                <motion.circle
+                  cx="315"
+                  animate={{ cy: [65, 45, 55, 65] }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                  r="3"
+                  className="fill-oxide"
                 />
 
-                {/* 2. Sweeping diagnostic scan line */}
+                {/* Diagnostic sweep line across stacked area chart */}
                 <motion.line
                   x1="0"
                   y1="10"
                   x2="0"
-                  y2="95"
+                  y2="175"
                   stroke="currentColor"
                   strokeWidth="0.75"
-                  className="text-oxide opacity-50"
-                  animate={{ x: [20, 260, 20] }}
-                  transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-                />
-
-                {/* 3. Database node network connection lines (bottom part) */}
-                {/* Connection lines */}
-                <line x1="30" y1="135" x2="85" y2="150" stroke="currentColor" strokeWidth="0.75" strokeDasharray="2 2" className="opacity-20 text-carbon" />
-                <line x1="85" y1="150" x2="140" y2="130" stroke="currentColor" strokeWidth="0.75" strokeDasharray="2 2" className="opacity-20 text-carbon" />
-                <line x1="140" y1="130" x2="195" y2="145" stroke="currentColor" strokeWidth="0.75" strokeDasharray="2 2" className="opacity-20 text-carbon" />
-                <line x1="195" y1="145" x2="250" y2="135" stroke="currentColor" strokeWidth="0.75" strokeDasharray="2 2" className="opacity-20 text-carbon" />
-                
-                {/* Vertical connections linking mesh network to analytical spline peaks */}
-                <line x1="85" y1="150" x2="100" y2="80" stroke="currentColor" strokeWidth="0.5" strokeDasharray="1 3" className="opacity-15 text-carbon" />
-                <line x1="195" y1="145" x2="180" y2="90" stroke="currentColor" strokeWidth="0.5" strokeDasharray="1 3" className="opacity-15 text-carbon" />
-
-                {/* System Nodes */}
-                <circle cx="30" cy="135" r="3" className="fill-carbon opacity-60" />
-                <circle cx="85" cy="150" r="3" className="fill-oxide opacity-80" />
-                <circle cx="140" cy="130" r="3" className="fill-carbon opacity-60" />
-                <circle cx="195" cy="145" r="3" className="fill-oxide opacity-80" />
-                <circle cx="250" cy="135" r="3" className="fill-carbon opacity-60" />
-
-                {/* 4. Animated Data/Energy Packets moving between system nodes */}
-                {/* Packet A to B */}
-                <motion.circle
-                  r="2"
-                  className="fill-oxide"
-                  animate={{
-                    cx: [30, 85],
-                    cy: [135, 150]
-                  }}
-                  transition={{ duration: 2.2, repeat: Infinity, ease: "linear" }}
-                />
-                {/* Packet B to C */}
-                <motion.circle
-                  r="2"
-                  className="fill-carbon"
-                  animate={{
-                    cx: [85, 140],
-                    cy: [150, 130]
-                  }}
-                  transition={{ duration: 1.8, repeat: Infinity, ease: "linear", delay: 0.3 }}
-                />
-                {/* Packet C to D */}
-                <motion.circle
-                  r="2"
-                  className="fill-oxide"
-                  animate={{
-                    cx: [140, 195],
-                    cy: [130, 145]
-                  }}
-                  transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
-                />
-                {/* Packet D to E */}
-                <motion.circle
-                  r="2"
-                  className="fill-carbon"
-                  animate={{
-                    cx: [195, 250],
-                    cy: [145, 135]
-                  }}
-                  transition={{ duration: 2.0, repeat: Infinity, ease: "linear", delay: 0.6 }}
+                  className="text-oxide opacity-45"
+                  animate={{ x: [10, 390, 10] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                 />
 
                 {/* Calibration tick marks along the bottom border representing scan limits */}
-                {[30, 52, 74, 96, 118, 140, 162, 184, 206, 228, 250].map((x, i) => (
+                {[20, 56, 92, 128, 164, 200, 236, 272, 308, 344, 380].map((x, i) => (
                   <line
                     key={i}
                     x1={x}
-                    y1="160"
+                    y1="168"
                     x2={x}
-                    y2={i % 5 === 0 ? "166" : "163"}
+                    y2={i % 5 === 0 ? "175" : "172"}
                     stroke="currentColor"
                     strokeWidth="0.75"
                     className="opacity-15 text-carbon"
