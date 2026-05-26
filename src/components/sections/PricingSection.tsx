@@ -12,7 +12,7 @@ import { studio } from "@/data/studio";
 
 export function PricingSection() {
   const { lang, t } = useLanguage();
-  const [billingTab, setBillingTab] = useState<"one-time" | "retainer">("one-time");
+  const [billingTab, setBillingTab] = useState<"one-time" | "retainer" | "a-la-carte">("one-time");
   const [isYearly, setIsYearly] = useState(false);
 
   const content = pricingData[lang];
@@ -58,7 +58,7 @@ export function PricingSection() {
 
         {/* Tab Controls for Development Model */}
         <div className="flex flex-col items-center mb-16">
-          <div className="relative inline-flex rounded-full border border-carbon/10 bg-chalk/70 p-1.5 shadow-sm backdrop-blur-sm">
+          <div className="relative inline-flex flex-wrap md:flex-nowrap justify-center rounded-full border border-carbon/10 bg-chalk/70 p-1.5 shadow-sm backdrop-blur-sm">
             <button
               onClick={() => setBillingTab("one-time")}
               className={`relative z-10 rounded-full px-6 py-2.5 text-xs font-semibold uppercase tracking-wider transition-colors duration-300 ${
@@ -88,6 +88,21 @@ export function PricingSection() {
                 />
               )}
               {content.toggles.boost}
+            </button>
+            <button
+              onClick={() => setBillingTab("a-la-carte")}
+              className={`relative z-10 rounded-full px-6 py-2.5 text-xs font-semibold uppercase tracking-wider transition-colors duration-300 ${
+                billingTab === "a-la-carte" ? "text-chalk" : "text-carbon/62 hover:text-carbon"
+              }`}
+            >
+              {billingTab === "a-la-carte" && (
+                <motion.span
+                  layoutId="activeTabPill"
+                  className="absolute inset-0 -z-10 rounded-full bg-carbon"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
+              {content.toggles.aLaCarte}
             </button>
           </div>
 
@@ -127,7 +142,9 @@ export function PricingSection() {
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid gap-8 md:grid-cols-3 md:items-stretch">
+        <div className={`grid gap-8 md:items-stretch transition-all duration-300 ${
+          billingTab === "a-la-carte" ? "md:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-3"
+        }`}>
           {billingTab === "one-time"
             ? content.oneTime.map((pkg) => (
                 <Reveal
@@ -196,7 +213,8 @@ export function PricingSection() {
                   </div>
                 </Reveal>
               ))
-            : content.retainers.map((pkg) => (
+            : billingTab === "retainer"
+            ? content.retainers.map((pkg) => (
                 <Reveal
                   key={pkg.index}
                   className={`relative flex flex-col justify-between p-8 md:p-10 rounded-2xl transition-all duration-300 bg-gradient-to-br from-chalk to-porcelain/60 border ${
@@ -262,6 +280,73 @@ export function PricingSection() {
                   <div className="mt-10">
                     <MagneticButton
                       href={getCtaLink(pkg.title, true)}
+                      variant={pkg.popular ? "dark" : "light"}
+                      className="w-full justify-center"
+                    >
+                      {pkg.cta}
+                    </MagneticButton>
+                  </div>
+                </Reveal>
+              ))
+            : content.aLaCarte.map((pkg) => (
+                <Reveal
+                  key={pkg.index}
+                  className={`relative flex flex-col justify-between p-8 md:p-10 rounded-2xl transition-all duration-300 bg-gradient-to-br from-chalk to-porcelain/60 border ${
+                    pkg.popular
+                      ? "border-oxide shadow-soft scale-[1.01]"
+                      : "border-carbon/10 hover:border-carbon/25"
+                  }`}
+                >
+                  {pkg.popular && (
+                    <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-oxide/8 to-transparent blur-xl" />
+                  )}
+                  {pkg.popular && (
+                    <div className="absolute -top-3 left-8 flex items-center gap-1 rounded-full bg-oxide px-3.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-chalk">
+                      <Sparkles size={9} />
+                      {pkg.badge}
+                    </div>
+                  )}
+
+                  <div>
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-widest text-carbon/35">
+                          {pkg.index} / {pkg.subtitle}
+                        </span>
+                        <h3 className="mt-2 font-display text-2xl font-semibold leading-tight text-carbon">
+                          {pkg.title}
+                        </h3>
+                      </div>
+                    </div>
+
+                    <p className="mt-4 text-sm leading-relaxed text-carbon/60 min-h-[3rem]">
+                      {pkg.target}
+                    </p>
+
+                    {/* Price block */}
+                    <div className="mt-6 border-t border-b border-carbon/10 py-5 my-6">
+                      <div className={`font-display text-4xl font-semibold leading-none ${pkg.popular ? "text-oxide" : "text-carbon"}`}>
+                        {pkg.price}
+                      </div>
+                      <p className="mt-1.5 text-xs text-carbon/48 italic">
+                        {pkg.pricePeriod}
+                      </p>
+                    </div>
+
+                    {/* Features */}
+                    <ul className="space-y-3.5">
+                      {pkg.features.map((feat) => (
+                        <li key={feat} className="flex items-start gap-2.5">
+                          <Check size={14} className="mt-1 shrink-0 text-oxide" strokeWidth={2.5} />
+                          <span className="text-sm leading-relaxed text-carbon/75">{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="mt-10">
+                    <MagneticButton
+                      href={getCtaLink(pkg.title, false)}
                       variant={pkg.popular ? "dark" : "light"}
                       className="w-full justify-center"
                     >

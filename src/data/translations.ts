@@ -73,15 +73,64 @@ export const translations = {
     },
     services: {
       tag: "Capabilities",
-      title: "Premium digital product craft, web/mobile applications, automated operations, and business strategy.",
-      s1_title: "Digital Products & Apps",
-      s1_desc: "Custom web platforms and mobile applications engineered using modern tech stacks (Next.js, React, and Flutter) with clean, scalable architecture.",
-      s2_title: "Workflow Automation",
-      s2_desc: "Replacing manual admin operations with automated agent workflows, trigger pipelines, CRM syncing, and Viber/WhatsApp custom systems.",
-      s3_title: "Performance Websites",
-      s3_desc: "Bespoke, cinematic websites constructed with high-end typography, Framer Motion transitions, speed optimization, and local SEO craft.",
-      s4_title: "Business Boosting Mindset",
-      s4_desc: "Aligning development directly with business conversion goals, marketing strategy, competitor advantages, and predictable cash flow."
+      title: "Premium digital product craft, visual identity, custom applications, and e-commerce growth.",
+      items: [
+        {
+          index: "01",
+          title: "Brand Identity",
+          desc: "Bespoke visual identity systems built to command industry authority.",
+          subservices: ["Logo Design", "Design Systems", "Visual Language", "Rebranding", "Packaging Design"]
+        },
+        {
+          index: "02",
+          title: "Visual Content",
+          desc: "Cinematic product assets and campaign directions that drive conversions.",
+          subservices: ["Product Shoot", "Lifestyle Photography", "Campaign Direction", "E-commerce Creative"]
+        },
+        {
+          index: "03",
+          title: "Web & Mobile Apps",
+          desc: "Full-stack applications engineered for speed, utility, and stability.",
+          subservices: ["iOS & Android Apps", "React Native / Flutter", "Next.js Web Apps", "SaaS Platforms"]
+        },
+        {
+          index: "04",
+          title: "Web Development",
+          desc: "Bespoke web platforms built around high-end typography, speed, and local SEO.",
+          subservices: ["Editorial Profiles", "Custom Landing Pages", "CMS Integration", "Speed & SEO Craft"]
+        },
+        {
+          index: "05",
+          title: "E-commerce",
+          desc: "High-conversion online stores with optimized user journeys and custom integrations.",
+          subservices: ["Custom Shopify Stores", "WooCommerce Setup", "Payment Funnels", "CRM Syncing"]
+        }
+      ]
+    },
+    approach: {
+      tag: "Methodology",
+      title: "Our approach & values.",
+      subtitle: "We combine visual depth, strategic reasoning, and custom engineering to create digital systems that drive your success.",
+      slides: [
+        {
+          index: "01",
+          label: "Strategy & Discovery",
+          title: "Aligning product direction with business growth.",
+          desc: "We dive deep into your positioning, competitor metrics, and target audience to define a technical architecture and layout concept structured for conversions."
+        },
+        {
+          index: "02",
+          label: "Design & Engineering",
+          title: "Pixel-perfect visual craft meets clean code.",
+          desc: "We construct modular, responsive components built with clean Next.js/React code, high-performance assets, and premium micro-animations inspired by Apple & Stripe."
+        },
+        {
+          index: "03",
+          label: "Launch & Acceleration",
+          title: "Speed, security, and continuous tracking.",
+          desc: "We deploy on secure enterprise servers, configure local SEO architectures, and integrate analytics to track user conversions and keep the system optimized."
+        }
+      ]
     },
     contact: {
       tag: "Contact",
@@ -185,15 +234,64 @@ export const translations = {
     },
     services: {
       tag: "Mogućnosti",
-      title: "Vrhunska izrada digitalnih proizvoda, mobilnih/veb aplikacija, automatizacija poslovanja i biznis strategija.",
-      s1_title: "Digitalni Proizvodi i Aplikacije",
-      s1_desc: "Prilagođene veb platforme i mobilne aplikacije razvijene u modernim tehnologijama (Next.js, Flutter) sa čistom i skalabilnom arhitekturom.",
-      s2_title: "Automatizacija Poslovnih Tokova",
-      s2_desc: "Zamena ručnih operacija automatizovanim AI tokovima, CRM sinhronizacijom i Viber/WhatsApp sistemima.",
-      s3_title: "Brzi Sajtovi (SEO)",
-      s3_desc: "Unikatni, cinematični sajtovi sa naprednom tipografijom, glatkim animacijama, optimizacijom brzine i lokalnim SEO pozicioniranjem.",
-      s4_title: "Poslovni Rast / Business Boost",
-      s4_desc: "Povezivanje programiranja direktno sa ciljevima konverzije, marketing strategijom, prednostima nad konkurencijom i stabilnim ROI."
+      title: "Vrhunska izrada digitalnih proizvoda, identitet brenda, namenske aplikacije i rast e-trgovine.",
+      items: [
+        {
+          index: "01",
+          title: "Identitet Brenda",
+          desc: "Unikatni vizuelni identitet i grafički sistemi kreirani da izgrade autoritet na tržištu.",
+          subservices: ["Dizajn Logotipa", "Sistemi Dizajna", "Vizuelni Jezik", "Ribrending", "Dizajn Pakovanja"]
+        },
+        {
+          index: "02",
+          title: "Vizuelni Sadržaj",
+          desc: "Cinematični vizuelni materijali i pravci kampanja koji donose direktne konverzije.",
+          subservices: ["Slikanje Proizvoda", "Lifestyle Fotografija", "Art Direkcija", "Kreativni E-commerce"]
+        },
+        {
+          index: "03",
+          title: "Web i Mobilne Aplikacije",
+          desc: "Kompletne aplikacije programirane za brzinu, korisnost i dugoročnu stabilnost.",
+          subservices: ["iOS i Android Aplikacije", "React Native / Flutter", "Next.js Aplikacije", "SaaS Platforme"]
+        },
+        {
+          index: "04",
+          title: "Razvoj Veb Sajtova",
+          desc: "Unikatni sajtovi izrađeni uz fokus na vrhunsku tipografiju, brzinu i lokalni SEO.",
+          subservices: ["Editorijal Prezentacije", "Landing Stranice", "CMS Integracija", "Optimizacija i SEO"]
+        },
+        {
+          index: "05",
+          title: "E-trgovina (E-commerce)",
+          desc: "Prodavnice visoke konverzije sa optimizovanim procesom kupovine i integracijama.",
+          subservices: ["Shopify Prodavnice", "WooCommerce Rešenja", "Tokovi Plaćanja", "CRM Sinhronizacija"]
+        }
+      ]
+    },
+    approach: {
+      tag: "Metodologija",
+      title: "Naš pristup i vrednosti.",
+      subtitle: "Spajamo kreativnu dubinu, strateško razmišljanje i namensko programiranje kako bismo kreirali sisteme koji pokreću vaš uspeh.",
+      slides: [
+        {
+          index: "01",
+          label: "Strategija i Otkrivanje",
+          title: "Povezivanje pravca proizvoda sa poslovnim rastom.",
+          desc: "Duboko analiziramo vaše pozicioniranje, konkurenciju i ciljnu publiku kako bismo definisali tehničku arhitekturu i koncept rasporeda prilagođen konverzijama."
+        },
+        {
+          index: "02",
+          label: "Dizajn i Programiranje",
+          title: "Piksel-perfektan dizajn i čist programski kod.",
+          desc: "Kreiramo modularne, prilagođene komponente korišćenjem čistog Next.js/React koda, optimizovanih grafičkih resursa i premijum animacija inspirisanih Apple-om."
+        },
+        {
+          index: "03",
+          label: "Lansiranje i Optimizacija",
+          title: "Brzina, bezbednost i stalno praćenje rezultata.",
+          desc: "Postavljamo sajtove na brze servere, konfigurišemo lokalne SEO parametre i integrišemo analitiku kako bismo pratili konverzije korisnika i održavali sistem."
+        }
+      ]
     },
     contact: {
       tag: "Kontakt",
