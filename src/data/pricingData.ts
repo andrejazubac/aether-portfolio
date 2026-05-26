@@ -49,54 +49,54 @@ export const pricingData = {
     oneTime: [
       {
         index: "01",
-        title: "Core Experience",
-        subtitle: "Premium Showcase",
-        target: "Local businesses and professionals seeking an ultra-fast, tailored showcase presence.",
-        price: "450€ – 600€",
+        title: "Core Identity & Web",
+        subtitle: "Showcase & Brand Kit",
+        target: "Brands seeking to establish visual authority, logo assets, and a fast custom landing presence.",
+        price: "800€ – 1,200€",
         pricePeriod: "One-time investment",
         features: [
-          "Up to 5 custom-designed editorial pages",
-          "Next.js / React performance optimization",
-          "Responsive layouts (Mobile-first standard)",
-          "Fundamental SEO architecture & metadata",
-          "WhatsApp and email contact form integration",
-          "Production build ready for hosting deployment"
+          "Full Brand Identity (Logo design, color palette, custom type selection)",
+          "Bespoke Next.js editorial website (up to 5 pages)",
+          "Mobile-first responsive layouts & GPU acceleration",
+          "Fundamental SEO architecture & metadata setup",
+          "WhatsApp and direct email contact integration",
+          "Production-ready build optimized for quick rendering"
         ],
-        cta: "Deploy Core Experience"
+        cta: "Deploy Core Identity"
       },
       {
         index: "02",
-        title: "Motion Studio",
-        subtitle: "Interactive Brand",
-        target: "Premium brands and startups aiming to stand out via custom motion, storytelling, and emotion.",
-        price: "800€ – 1,200€",
+        title: "Motion & E-commerce",
+        subtitle: "Shopify & Web Apps",
+        target: "Startups and online stores seeking custom design, visual content, and seamless checkouts.",
+        price: "1,500€ – 2,500€",
         pricePeriod: "One-time investment",
         badge: "Recommended",
         popular: true,
         features: [
-          "Everything in Core Experience",
-          "Framer Motion interactive orchestrations",
-          "Fluid custom page transitions",
-          "Scroll-driven storytelling layouts",
-          "Premium micro-animations (Apple & Stripe inspired)",
-          "Lottie & high-performance asset optimization"
+          "Everything in Core Identity & Web",
+          "Custom E-commerce setup (Shopify / WooCommerce custom theme)",
+          "Visual Content direction & custom media asset optimization",
+          "Fluid Framer Motion page transitions & micro-interactions",
+          "Checkout funnel optimization & automated transactional mail",
+          "Up to 10 custom editorial layouts built for conversions"
         ],
-        cta: "Deploy Motion Experience"
+        cta: "Deploy Motion Store"
       },
       {
         index: "03",
-        title: "Aether WOW",
-        subtitle: "Cinematic Immersive",
-        target: "Enterprise clients and premium portfolios seeking award-winning, boundary-pushing interfaces.",
-        price: "1,800€+",
+        title: "Cinematic Enterprise",
+        subtitle: "Custom Apps & WebGL",
+        target: "High-end portfolios and digital systems requiring custom mobile apps and WebGL visuals.",
+        price: "3,500€+",
         pricePeriod: "Custom quote",
         features: [
-          "Unlimited custom pages and structural sections",
-          "Advanced WebGL / HTML5 Canvas motion elements",
-          "Custom interactive UI/UX shader layers",
-          "Tailored CMS setup (Sanity or headless Wordpress)",
-          "Deep integration with CRM & custom API platforms",
-          "Direct creative director support & full testing runs"
+          "Custom iOS & Android mobile application development (Flutter / React Native)",
+          "Advanced WebGL / HTML5 Canvas 3D elements & cinematic shaders",
+          "Headless CMS & Headless E-commerce setup (Sanity / Shopify Storefront)",
+          "Unlimited custom pages and full design language components",
+          "Direct integration with central CRM and custom API pipelines",
+          "Dedicated creative director alignment & full testing cycles"
         ],
         cta: "Request Cinematic Concept"
       }
@@ -105,55 +105,55 @@ export const pricingData = {
       {
         index: "01",
         title: "Essential Care",
-        subtitle: "Maintenance & Stability",
-        target: "For businesses wanting peace of mind, reliable hosting, and basic content adjustments.",
-        price: "60€",
+        subtitle: "Uptime & Maintenance",
+        target: "For businesses wanting peace of mind, reliable hosting, and basic adjustments.",
+        price: "80€",
         pricePeriod: "month",
         features: [
           "Premium hosting & domain registration included",
-          "Enterprise SSL security certificate",
+          "Enterprise SSL security certificate & firewalls",
           "Daily automated backups (30-day retention)",
-          "Active server uptime monitoring & firewalls",
+          "Active server uptime monitoring & malware protection",
           "Up to 2 hours of copy/image updates per month",
-          "Standard email support response (24h)"
+          "Standard technical support response (24h)"
         ],
         cta: "Select Essential Care"
       },
       {
         index: "02",
-        title: "Growth & SEO",
-        subtitle: "Performance & Visibility",
-        target: "For local leaders wanting to capture search traffic and continuously improve conversions.",
-        price: "120€",
+        title: "Branding & SEO Boost",
+        subtitle: "SEO & Brand Assets",
+        target: "For local leaders looking to rank on search engines and continuously update brand materials.",
+        price: "180€",
         pricePeriod: "month",
         badge: "Most Popular",
         popular: true,
         features: [
           "Everything in Essential Care",
-          "Local SEO optimization & local map rankings",
-          "Google Business Profile optimization strategy",
-          "Competitor keyword tracking & industry analysis",
-          "Monthly Google Analytics & Search Console report",
-          "Up to 5 hours of design & code improvements / mo"
+          "Local SEO optimization & Google Maps ranking audits",
+          "Visual Content support & Brand asset updates (newsletters, banners, mockups)",
+          "Competitor keyword tracking & local industry analysis",
+          "Monthly Google Analytics & Search Console growth reports",
+          "Up to 6 hours of custom design & programming improvements / mo"
         ],
-        cta: "Select Growth & SEO"
+        cta: "Select Branding & SEO"
       },
       {
         index: "03",
-        title: "Smart Business",
-        subtitle: "AI Ops & Automation",
-        target: "For modern organizations wanting to automate leads, bookings, and operations using AI.",
-        price: "250€",
+        title: "E-commerce & App Ops",
+        subtitle: "AI Ops & Custom Apps",
+        target: "For modern organizations wanting to automate checkout operations and maintain mobile apps.",
+        price: "350€",
         pricePeriod: "month",
         features: [
-          "Everything in Growth & SEO",
-          "Custom AI Lead-capture Chatbot integration",
-          "Automated reservations (Viber/WhatsApp triggers)",
-          "Direct integration with central CRM or spreadsheets",
-          "Operational intelligence checkups & updates",
-          "Up to 10 hours of premium engineering updates / mo"
+          "Everything in Branding & SEO Boost",
+          "Continuous E-commerce checkout audits & funnel optimizations",
+          "Custom AI Agent workflow integrations for leads/tasks",
+          "WhatsApp / Viber booking & customer notification triggers",
+          "Direct syncing with central CRM database or spreadsheets",
+          "Up to 12 hours of custom software & mobile app updates / mo"
         ],
-        cta: "Select Smart Business"
+        cta: "Select App & E-commerce Ops"
       }
     ] as PricingPackage[],
     launch: [
@@ -213,54 +213,54 @@ export const pricingData = {
     oneTime: [
       {
         index: "01",
-        title: "Core Experience",
-        subtitle: "Prezentacione Platforme",
-        target: "Lokalni biznisi i profesionalci koji žele ultra-brzu, prilagođenu prezentaciju visokog kvaliteta.",
-        price: "450€ – 600€",
+        title: "Core Identity & Web",
+        subtitle: "Showcase i Identitet",
+        target: "Brendovi koji žele da postave vizuelni autoritet, logotip i brzu prilagođenu prezentaciju.",
+        price: "800€ – 1.200€",
         pricePeriod: "Jednokratna investicija",
         features: [
-          "Do 5 unikatno dizajniranih stranica",
-          "Next.js / React optimizacija za maksimalne performanse",
-          "Prilagođeno mobilnim uređajima (Mobile-first standard)",
-          "Osnovna SEO struktura i konfiguracija metapodataka",
-          "Integracija kontakt formi i WhatsApp dugmeta za brzu komunikaciju",
-          "Proizvodni kod spreman za postavljanje na hosting"
+          "Kompletan vizuelni identitet (Dizajn logotipa, paleta boja, selekcija fontova)",
+          "Unikatan Next.js sajt po meri (do 5 stranica)",
+          "Prilagođeno mobilnim uređajima i GPU ubrzanje animacija",
+          "Osnovna SEO struktura i metapodaci",
+          "Integracija WhatsApp-a i direktnih kontakt formi",
+          "Proizvodni kod optimizovan za brzo učitavanje"
         ],
-        cta: "Izaberi Core Experience"
+        cta: "Izaberi Core Identity"
       },
       {
         index: "02",
-        title: "Motion Studio",
-        subtitle: "Napredne Animacije",
-        target: "Premium brendovi, ordinacije i kompanije koje žele da se izdvoje kroz interakciju, emociju i fluidnost.",
-        price: "800€ – 1.200€",
+        title: "Motion & E-commerce",
+        subtitle: "Shopify i Aplikacije",
+        target: "Startapi i online prodavnice koji žele unikatni dizajn, kreiranje vizuelnog sadržaja i stabilno plaćanje.",
+        price: "1.500€ – 2.500€",
         pricePeriod: "Jednokratna investicija",
         badge: "Preporučeno",
         popular: true,
         features: [
-          "Sve obuhvaćeno u Core Experience paketu",
-          "Framer Motion interaktivne orkestracije na sajtu",
-          "Fluidni prelazi između stranica bez kašnjenja",
-          "Narativni raspored elemenata vođen skrolovanjem (Scroll-storytelling)",
-          "Premium mikro-animacije (inspirisane Apple i Stripe interfejsom)",
-          "Optimizacija slika i video materijala za GPU akceleraciju"
+          "Sve obuhvaćeno u Core Identity & Web paketu",
+          "Izrada E-commerce prodavnica ( Shopify ili WooCommerce kodirana tema )",
+          "Art direkcija i optimizacija vizuelnog sadržaja za prodavnicu",
+          "Fluidni prelazi između stranica i Framer Motion mikro-interakcije",
+          "Optimizacija toka plaćanja i automatske poruke kupcima",
+          "Do 10 prilagođenih stranica strukturisanih za prodaju"
         ],
-        cta: "Izaberi Motion Studio"
+        cta: "Izaberi Motion Store"
       },
       {
         index: "03",
-        title: "Aether WOW",
-        subtitle: "Immersive Cinematic",
-        target: "Klijenti koji traže umetnički nivo dizajna, nagrađivana rešenja i napredne vizuelne sisteme.",
-        price: "1.800€+",
+        title: "Cinematic Enterprise",
+        subtitle: "WebGL i Mobilne Aplikacije",
+        target: "Klijenti koji traže unikatne mobilne aplikacije i napredne WebGL 3D sisteme.",
+        price: "3.500€+",
         pricePeriod: "Upit za ponudu",
         features: [
-          "Neograničen broj stranica i strukturnih sekcija",
-          "Napredne WebGL / HTML5 Canvas animacije i 3D elementi",
-          "Jedinstveni interaktivni UI/UX slojevi rađeni po meri",
-          "Implementacija prilagođenog CMS sistema (Sanity ili headless WordPress)",
-          "Povezivanje sa CRM softverima i spoljnim API servisima",
-          "Direktna saradnja sa kreativnim direktorom tokom celog procesa"
+          "Razvoj mobilnih aplikacija za iOS i Android (Flutter / React Native)",
+          "Napredne WebGL / HTML5 Canvas 3D animacije i šejderi",
+          "Headless CMS i headless e-commerce (Sanity / Shopify Storefront)",
+          "Neograničen broj stranica i kompletan sistem komponenti",
+          "Povezivanje sa CRM bazama i eksternim API tokovima",
+          "Direktna saradnja sa kreativnim direktorom i puni QA testovi"
         ],
         cta: "Zatraži Cinematic Koncept"
       }
@@ -269,15 +269,15 @@ export const pricingData = {
       {
         index: "01",
         title: "Essential Care",
-        subtitle: "Održavanje i Stabilnost",
-        target: "Za preduzeća koja žele bezbedan i stabilan sajt, uključen hosting i brze ispravke sadržaja.",
-        price: "60€",
+        subtitle: "Bezbednost i Održavanje",
+        target: "Za preduzeća koja žele uključen hosting, SSL sertifikat i osnovne ispravke koda.",
+        price: "80€",
         pricePeriod: "mesec",
         features: [
-          "Premium hosting i registracija domena uključeni u cenu",
-          "Sigurnosni SSL sertifikat",
-          "Svakodnevne automatske rezervne kopije (backup na 30 dana)",
-          "Aktivno praćenje dostupnosti servera (uptime) i zaštita od napada",
+          "Premium hosting i domen uključeni u cenu",
+          "Uključen SSL sertifikat i zaštita od pretnji",
+          "Automatske rezervne kopije svakog dana (čuvanje 30 dana)",
+          "Aktivno praćenje dostupnosti servera i zaštita od napada",
           "Do 2 sata mesečno za ažuriranje tekstova ili zamenu slika",
           "Tehnička podrška putem emaila sa odgovorom u roku od 24h"
         ],
@@ -285,39 +285,39 @@ export const pricingData = {
       },
       {
         index: "02",
-        title: "Growth & SEO",
-        subtitle: "Pozicioniranje i Rast",
-        target: "Za lokalne lidere (restorane, ordinacije, salone) koji žele prva mesta na Google pretragama i veći broj klijenata.",
-        price: "120€",
+        title: "Branding & SEO Boost",
+        subtitle: "Brend i Pozicioniranje",
+        target: "Za klijente koji žele prva mesta na pretrazi i kontinuirano osvežavanje brend materijala.",
+        price: "180€",
         pricePeriod: "mesec",
         badge: "Najpopularniji",
         popular: true,
         features: [
           "Sve obuhvaćeno u Essential Care paketu",
-          "Lokalna SEO optimizacija i pozicioniranje na Google Maps",
-          "Strategija upravljanja Google Business profilom",
-          "Praćenje ključnih reči konkurencije i mesečne analize tržišta",
-          "Mesečni izveštaj iz Google analitike i Search Console alata",
-          "Do 5 sati mesečno za dizajnerska i programska unapređenja sajta"
+          "Lokalna SEO optimizacija i pozicioniranje na Google mapama",
+          "Podrška za vizuelni sadržaj i izrada brend grafika (newsletter-i, baneri)",
+          "Praćenje ključnih reči konkurenata i analiza lokalnog tržišta",
+          "Mesečni Google Analytics i Search Console izveštaji o rastu",
+          "Do 6 sati mesečno za programerska i dizajnerska unapređenja"
         ],
-        cta: "Izaberi Growth & SEO"
+        cta: "Izaberi Branding & SEO"
       },
       {
         index: "03",
-        title: "Smart Business",
-        subtitle: "AI i Automatizacija",
-        target: "Za napredne biznise koji žele automatsku obradu upita, rezervacije i povezivanje sa CRM-om.",
-        price: "250€",
+        title: "E-commerce & App Ops",
+        subtitle: "AI i Podrška Aplikacijama",
+        target: "Za organizacije koje žele automatizaciju prodaje i održavanje mobilnih aplikacija.",
+        price: "350€",
         pricePeriod: "mesec",
         features: [
-          "Sve obuhvaćeno u Growth & SEO paketu",
-          "Integracija AI Asistenta (Chatbota) obučenog za vaš biznis",
-          "Automatizovani sistemi rezervacije i notifikacija (Viber/WhatsApp)",
-          "Povezivanje sa CRM bazom podataka ili centralnim tabelama",
-          "Optimizacija poslovnih tokova i stalno prilagođavanje AI modela",
-          "Do 10 sati mesečno za napredne programske izmene i nove funkcionalnosti"
+          "Sve obuhvaćeno u Branding & SEO Boost paketu",
+          "Redovne provere korpe i optimizacije procesa kupovine",
+          "Integracija prilagođenih AI agenata za pomoć pri radu",
+          "Sistemi automatske rezervacije i obaveštenja (Viber / WhatsApp)",
+          "Direktna sinhronizacija sa centralnom bazom klijenta",
+          "Do 12 sati mesečno za izmene na softveru ili mobilnim aplikacijama"
         ],
-        cta: "Izaberi Smart Business"
+        cta: "Izaberi App & E-commerce Ops"
       }
     ] as PricingPackage[],
     launch: [

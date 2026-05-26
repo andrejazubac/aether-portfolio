@@ -4,8 +4,16 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { useLanguage } from "@/context/LanguageContext";
 
+interface ServiceItem {
+  index: string;
+  title: string;
+  desc: string;
+  subservices: string[];
+}
+
 export function Services() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
+  const items = (t("services.items") || []) as ServiceItem[];
 
   return (
     <section id="services" className="relative overflow-hidden bg-porcelain px-5 py-20 text-carbon md:px-10 md:py-28">
@@ -27,28 +35,55 @@ export function Services() {
         </div>
 
         {/* Services Cards Grid */}
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {[1, 2, 3, 4].map((item) => {
-            const title = t(`services.s${item}_title`);
-            const description = t(`services.s${item}_desc`);
-            const accentBg = item % 2 === 0 ? "bg-moss" : "bg-oxide";
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {items.map((item) => {
+            const indexNum = parseInt(item.index, 10);
+            const accentBg = indexNum % 2 === 0 ? "bg-moss" : "bg-oxide";
 
             return (
-              <Reveal key={item}>
-                <article className="relative overflow-hidden min-h-60 border border-carbon/10 bg-gradient-to-br from-chalk to-porcelain/60 p-8 transition-all duration-300 hover:border-oxide/40 hover:shadow-soft flex flex-col justify-between group">
+              <Reveal key={item.index}>
+                <article className="relative overflow-hidden min-h-[24rem] border border-carbon/10 bg-gradient-to-br from-chalk to-porcelain/60 p-8 transition-all duration-500 hover:border-oxide/40 hover:shadow-soft flex flex-col justify-between group rounded-2xl">
                   {/* Top accent interactive bar */}
                   <div className={`absolute top-0 left-0 w-full h-[3px] ${accentBg} scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`} />
+                  
                   <div>
-                    <h3 className="font-display text-3xl font-semibold leading-tight text-carbon">
-                      {title}
-                    </h3>
-                    <p className="mt-6 max-w-xl text-sm leading-relaxed text-carbon/62">
-                      {description}
-                    </p>
+                    {/* Index header */}
+                    <div className="flex justify-between items-start">
+                      <span className="font-display text-xs text-oxide/70 font-semibold">{item.index}</span>
+                      <span className="text-[9px] uppercase tracking-widest text-carbon/30 group-hover:text-oxide transition-colors duration-300 font-bold">
+                        / {item.subservices.length} {lang === "en" ? "services" : "usluga"}
+                      </span>
+                    </div>
+
+                    {/* Content */}
+                    <div className="mt-6">
+                      <h3 className="font-display text-2xl font-semibold leading-tight text-carbon group-hover:text-oxide transition-colors duration-300">
+                        {item.title}
+                      </h3>
+                      <p className="mt-3 text-xs leading-relaxed text-carbon/60 group-hover:text-carbon/80 transition-colors duration-300">
+                        {item.desc}
+                      </p>
+                    </div>
+
+                    {/* Subservices tags (fades and slides up on hover) */}
+                    <div className="mt-6 flex flex-wrap gap-1.5 opacity-0 group-hover:opacity-100 translate-y-3 group-hover:translate-y-0 transition-all duration-500 ease-out">
+                      {item.subservices.map((sub) => (
+                        <span 
+                          key={sub} 
+                          className="rounded-full border border-carbon/8 bg-chalk/90 px-2.5 py-0.5 text-[9.5px] text-carbon/75 font-medium transition-all hover:border-oxide/30 hover:text-oxide"
+                        >
+                          {sub}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  <div className="mt-8 flex justify-between items-center text-[10px] font-bold uppercase tracking-widest text-carbon/30">
-                    <span>Aether Cap.</span>
-                    <span className="text-oxide">→</span>
+
+                  {/* Card Footer */}
+                  <div className="mt-8 pt-4 border-t border-carbon/8 flex justify-between items-center text-[9px] font-bold uppercase tracking-widest text-carbon/35">
+                    <span className="group-hover:text-carbon transition-colors">
+                      {lang === "en" ? "Explore Service" : "Istraži Uslugu"}
+                    </span>
+                    <span className="text-oxide group-hover:translate-x-1.5 transition-transform duration-300">→</span>
                   </div>
                 </article>
               </Reveal>
