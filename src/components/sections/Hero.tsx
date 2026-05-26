@@ -104,92 +104,115 @@ export function Hero() {
                 className="text-carbon"
               >
                 {/* Background coordinate grid line accents */}
-                <line x1="140" y1="10" x2="140" y2="160" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 3" className="opacity-15" />
-                <line x1="20" y1="60" x2="260" y2="60" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 3" className="opacity-15" />
+                <line x1="140" y1="5" x2="140" y2="165" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 3" className="opacity-15" />
+                <line x1="15" y1="65" x2="265" y2="65" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 3" className="opacity-15" />
 
-                {/* Rotating Outer Dashed Circle representing Orbit */}
+                {/* Concentric Energy Waves expanding outwards from nucleus */}
+                <circle cx="140" cy="65" r="3" className="fill-carbon" />
                 <motion.circle
                   cx="140"
-                  cy="60"
-                  r="36"
+                  cy="65"
+                  animate={{ r: [6, 20, 6], opacity: [0.6, 0.1, 0.6] }}
+                  transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
                   stroke="currentColor"
-                  strokeWidth="1"
-                  strokeDasharray="6 4"
-                  className="opacity-25"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-                  style={{ originX: "140px", originY: "60px" }}
+                  strokeWidth="0.75"
+                  className="text-oxide/40"
                 />
-
-                {/* Rotating Inner Circle with solid parts */}
                 <motion.circle
                   cx="140"
-                  cy="60"
-                  r="24"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeDasharray="15 8"
-                  className="opacity-45 text-oxide"
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-                  style={{ originX: "140px", originY: "60px" }}
-                />
-
-                {/* Solid Core Dot */}
-                <circle cx="140" cy="60" r="4" className="fill-carbon" />
-                <motion.circle
-                  cx="140"
-                  cy="60"
-                  r="8"
+                  cy="65"
+                  animate={{ r: [12, 34, 12], opacity: [0.4, 0, 0.4] }}
+                  transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                   stroke="currentColor"
                   strokeWidth="0.5"
-                  className="opacity-40"
-                  animate={{ scale: [1, 1.25, 1] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  className="text-carbon/20"
+                />
+                <motion.circle
+                  cx="140"
+                  cy="65"
+                  animate={{ r: [20, 52, 20], opacity: [0.3, 0, 0.3] }}
+                  transition={{ duration: 8.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                  stroke="currentColor"
+                  strokeWidth="0.5"
+                  className="text-carbon/10"
                 />
 
-                {/* Oscillating Pendulum/Equalizer Lines below the core */}
-                {[70, 87, 104, 121, 138, 155, 172, 189, 206, 223, 240].map((x, i) => {
-                  // i ranges from 0 to 10. Center index is 5 (x = 138)
-                  const distanceFromCenter = Math.abs(i - 5);
-                  const baseHeight = 115 + (5 - distanceFromCenter) * 6; // Center lines are longer
-                  
-                  return (
-                    <g key={i}>
-                      {/* Vertical Connecting Line */}
-                      <motion.line
-                        x1={x}
-                        y1="96"
-                        x2={x}
-                        animate={{
-                          y2: [baseHeight - 10, baseHeight + 10, baseHeight - 10]
-                        }}
-                        transition={{
-                          duration: 2.2 + (i * 0.12),
-                          repeat: Infinity,
-                          ease: "easeInOut"
-                        }}
-                        stroke="currentColor"
-                        strokeWidth="1"
-                        className="opacity-20 text-carbon"
-                      />
-                      {/* Interactive Target Circle Node on tip */}
-                      <motion.circle
-                        cx={x}
-                        animate={{
-                          cy: [baseHeight - 10, baseHeight + 10, baseHeight - 10]
-                        }}
-                        transition={{
-                          duration: 2.2 + (i * 0.12),
-                          repeat: Infinity,
-                          ease: "easeInOut"
-                        }}
-                        r="2"
-                        className="fill-oxide opacity-80"
-                      />
-                    </g>
-                  );
-                })}
+                {/* 3D Atomic Elliptical Orbits with rotating particle dots */}
+                {/* Orbit 1: Tilted left (-28 degrees) */}
+                <g transform="translate(140, 65) rotate(-28)">
+                  <g transform="scale(1, 0.36)">
+                    <circle cx="0" cy="0" r="54" stroke="currentColor" strokeWidth="0.75" strokeDasharray="4 3" className="opacity-25 text-carbon" />
+                    <motion.g
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 5.5, repeat: Infinity, ease: "linear" }}
+                    >
+                      <circle cx="54" cy="0" r="2.5" className="fill-oxide" />
+                    </motion.g>
+                  </g>
+                </g>
+
+                {/* Orbit 2: Tilted right (28 degrees) */}
+                <g transform="translate(140, 65) rotate(28)">
+                  <g transform="scale(1, 0.36)">
+                    <circle cx="0" cy="0" r="54" stroke="currentColor" strokeWidth="0.75" strokeDasharray="4 3" className="opacity-25 text-carbon" />
+                    <motion.g
+                      animate={{ rotate: -360 }}
+                      transition={{ duration: 7.5, repeat: Infinity, ease: "linear" }}
+                    >
+                      <circle cx="54" cy="0" r="2" className="fill-carbon opacity-60" />
+                    </motion.g>
+                  </g>
+                </g>
+
+                {/* Orbit 3: Horizontal (0 degrees, wider) */}
+                <g transform="translate(140, 65)">
+                  <g transform="scale(1, 0.28)">
+                    <circle cx="0" cy="0" r="72" stroke="currentColor" strokeWidth="0.5" strokeDasharray="5 3" className="opacity-20 text-carbon" />
+                    <motion.g
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 9.5, repeat: Infinity, ease: "linear" }}
+                    >
+                      <circle cx="72" cy="0" r="2" className="fill-oxide" />
+                    </motion.g>
+                  </g>
+                </g>
+
+                {/* Sliding Frequency Waves at the bottom boundary */}
+                <g>
+                  {/* Solid Wave (Carbon) */}
+                  <motion.path
+                    d="M -80 135 Q -60 123, -40 135 T 0 135 T 40 135 T 80 135 T 120 135 T 160 135 T 200 135 T 240 135 T 280 135 T 320 135 T 360 135"
+                    stroke="currentColor"
+                    strokeWidth="0.75"
+                    className="opacity-25 text-carbon"
+                    animate={{ x: [-80, 0] }}
+                    transition={{ duration: 3.5, repeat: Infinity, ease: "linear" }}
+                  />
+                  {/* Dashed Wave (Oxide, out-of-phase sliding opposite direction) */}
+                  <motion.path
+                    d="M -80 135 Q -60 147, -40 135 T 0 135 T 40 135 T 80 135 T 120 135 T 160 135 T 200 135 T 240 135 T 280 135 T 320 135 T 360 135"
+                    stroke="currentColor"
+                    strokeWidth="0.5"
+                    strokeDasharray="3 3"
+                    className="opacity-18 text-oxide"
+                    animate={{ x: [0, -80] }}
+                    transition={{ duration: 4.5, repeat: Infinity, ease: "linear" }}
+                  />
+                </g>
+
+                {/* Bottom measurement scale ticks representing wave scan */}
+                {[30, 52, 74, 96, 118, 140, 162, 184, 206, 228, 250].map((x, i) => (
+                  <line
+                    key={i}
+                    x1={x}
+                    y1="152"
+                    x2={x}
+                    y2={i % 5 === 0 ? "160" : "156"}
+                    stroke="currentColor"
+                    strokeWidth="0.75"
+                    className="opacity-15 text-carbon"
+                  />
+                ))}
               </svg>
             </div>
 
