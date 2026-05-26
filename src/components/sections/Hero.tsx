@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Sparkles, ArrowDownRight } from "lucide-react";
 import { MagneticButton } from "@/components/ui/MagneticButton";
@@ -9,6 +10,17 @@ import { renderFormattedText } from "@/lib/utils";
 
 export function Hero() {
   const { t } = useLanguage();
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    setMousePos({ x, y });
+  };
 
   const disciplines = [
     {
@@ -63,16 +75,126 @@ export function Hero() {
           </motion.div>
 
           <motion.div
+            ref={cardRef}
+            onMouseMove={handleMouseMove}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-            className="flex flex-col gap-6 lg:mt-16"
+            className="relative flex flex-col justify-between p-8 bg-chalk/35 border border-carbon/10 rounded-2xl shadow-sm backdrop-blur-sm hover:border-oxide/30 hover:shadow-soft transition-all duration-500 overflow-hidden min-h-[460px] lg:mt-16"
           >
-            <p className="max-w-md text-sm leading-relaxed text-carbon/62">
-              {renderFormattedText(t("hero.description"))}
-            </p>
-            
-            <div className="flex flex-wrap items-center gap-4">
+            {/* Ambient indicator tracking labels inside layout */}
+            <div className="absolute inset-0 grid-lines opacity-10 pointer-events-none" />
+
+            <div className="relative z-10">
+              <p className="max-w-md text-sm leading-relaxed text-carbon/62">
+                {renderFormattedText(t("hero.description"))}
+              </p>
+            </div>
+
+            {/* Middle: Abstract SVG Animation */}
+            <div className="relative z-10 flex items-center justify-center h-44 my-2 select-none">
+              <svg
+                width="280"
+                height="170"
+                viewBox="0 0 280 170"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="text-carbon"
+              >
+                {/* Background coordinate grid line accents */}
+                <line x1="140" y1="10" x2="140" y2="160" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 3" className="opacity-15" />
+                <line x1="20" y1="60" x2="260" y2="60" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 3" className="opacity-15" />
+
+                {/* Rotating Outer Dashed Circle representing Orbit */}
+                <motion.circle
+                  cx="140"
+                  cy="60"
+                  r="36"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                  strokeDasharray="6 4"
+                  className="opacity-25"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+                  style={{ originX: "140px", originY: "60px" }}
+                />
+
+                {/* Rotating Inner Circle with solid parts */}
+                <motion.circle
+                  cx="140"
+                  cy="60"
+                  r="24"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeDasharray="15 8"
+                  className="opacity-45 text-oxide"
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+                  style={{ originX: "140px", originY: "60px" }}
+                />
+
+                {/* Solid Core Dot */}
+                <circle cx="140" cy="60" r="4" className="fill-carbon" />
+                <motion.circle
+                  cx="140"
+                  cy="60"
+                  r="8"
+                  stroke="currentColor"
+                  strokeWidth="0.5"
+                  className="opacity-40"
+                  animate={{ scale: [1, 1.25, 1] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                />
+
+                {/* Oscillating Pendulum/Equalizer Lines below the core */}
+                {[70, 87, 104, 121, 138, 155, 172, 189, 206, 223, 240].map((x, i) => {
+                  // i ranges from 0 to 10. Center index is 5 (x = 138)
+                  const distanceFromCenter = Math.abs(i - 5);
+                  const baseHeight = 115 + (5 - distanceFromCenter) * 6; // Center lines are longer
+                  
+                  return (
+                    <g key={i}>
+                      {/* Vertical Connecting Line */}
+                      <motion.line
+                        x1={x}
+                        y1="96"
+                        x2={x}
+                        animate={{
+                          y2: [baseHeight - 10, baseHeight + 10, baseHeight - 10]
+                        }}
+                        transition={{
+                          duration: 2.2 + (i * 0.12),
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                        stroke="currentColor"
+                        strokeWidth="1"
+                        className="opacity-20 text-carbon"
+                      />
+                      {/* Interactive Target Circle Node on tip */}
+                      <motion.circle
+                        cx={x}
+                        animate={{
+                          cy: [baseHeight - 10, baseHeight + 10, baseHeight - 10]
+                        }}
+                        transition={{
+                          duration: 2.2 + (i * 0.12),
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                        r="2"
+                        className="fill-oxide opacity-80"
+                      />
+                    </g>
+                  );
+                })}
+              </svg>
+            </div>
+
+            {/* Bottom: CTA Buttons */}
+            <div className="relative z-10 flex flex-wrap items-center gap-4 border-t border-carbon/8 pt-6">
               <MagneticButton href={`mailto:${studio.email}`} variant="dark">
                 {t("hero.ctaStart")}
               </MagneticButton>
@@ -83,6 +205,15 @@ export function Hero() {
                 <span>{t("hero.ctaPricing")}</span>
                 <ArrowDownRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
               </a>
+            </div>
+
+            {/* Live Locator Status indicator */}
+            <div className="absolute bottom-6 right-8 text-[9px] font-mono text-carbon/30 select-none">
+              {isHovered ? (
+                <span>SYS.LOC: [{(mousePos.x * 0.5).toFixed(1)}, {(mousePos.y * -0.5).toFixed(1)}]</span>
+              ) : (
+                <span>SYS.LOC: [IDLE_TRACK]</span>
+              )}
             </div>
           </motion.div>
         </div>
