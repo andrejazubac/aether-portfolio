@@ -35,8 +35,8 @@ export function Approach() {
     ["#181816", "#FBFAF7", "#FBFAF7", "#181816"]
   );
 
-  const titleOpacity = useTransform(scrollYProgress, [0, 0.22], [1, 0]);
-  const titleY = useTransform(scrollYProgress, [0, 0.22], [0, -30]);
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.08, 0.22], [0, 1, 0]);
+  const titleY = useTransform(scrollYProgress, [0, 0.08, 0.22], [20, 0, -30]);
 
   const scale = useTransform(
     scrollYProgress,
